@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script>
+        let movie = {{movie|tojson}}
+        console.log(movie)
+    </script>
+
+    <div class = "container">
+        <div class="coolfont movietitle row accent">{{movie.title}}</div>
+        <div class = "row">
+            <div class = "col-4">
+                <img src = {{movie.image}} class = "fullwidth" alt = "{{movie.title}}"><br><br>
+                <a href = "{{'/edit/%s'|format(movie.id)}}">
+                    <button id = "edit_info" class="coolfont btn btn-outline-secondary btn-lg btn-block">Edit</button>
+                </a>
+            </div>
+            <div class = "col-8 listitem coolfont">
+                <div class = "quickinfo">
+                    <span>release year : {{movie.release_year}}</span><br>
+                    <span>series : <a href="/search/{{movie.category}}">{{movie.category}}</a></span><br>
+                    <span>canon year : {{movie.era}}</span><br>
+                </div>
+                <div class = "quickinfo">
+                    summary: <br>
+                    <div>{{movie.summary}}</div>
+                </div>
+                <div class ="quickinfo">
+                    main characters:
+                    <ul>
+                        {% for char in movie.main_characters %}
+                        <li><a href="/search/{{char}}">{{char}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class ="quickinfo">
+                    droids:
+                    <ul>
+                        {% for droid in movie.droids %}
+                        <li><a href="/search/{{droid}}">{{droid}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+            </div>
+        </div> 
+    </div>
+{% endblock %}
+

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+<script>
+    let mostpopular = {{mostpopular|tojson}}
+    console.log(mostpopular)
+</script>
+
+<div class = "container coolfont">
+    <div class = "row headerhome">
+        <img src = "https://cdn.s7.shopdisney.eu/is/image/ShopDisneyEMEA/36779_starwars_franchise_header_mb?$xlargeFull$&fit=constrain&cropN=0,0,1,1"
+        class="fullwidth" alt = "Star Wars image header">
+    </div>
+    <div class = "row sitedescription">
+        welcome to star wars universe, your guide to the star wars films franchise!
+    </div>
+    <div class = "row">
+        <span class = "title accent">most popular this week</span><br>
+    </div>
+    <div class = "row" id = "mostpop"></div>
+</div>
+
+    
+{% endblock %}
+
+
+
+

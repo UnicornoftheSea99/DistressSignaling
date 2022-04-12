@@ -1,0 +1,125 @@
+.darkgrey{
+    color: rgb(89, 89, 89); 
+}
+.lightgrey{
+    background-color: #E9E9E9;
+}
+.accent{
+    color: #0000EE
+}
+.coolfont {
+    font-family: 'Hubballi', cursive;
+}
+.headerhome{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.fullwidth{
+    width: 100%;
+}
+.fullheight{
+    height: 100%;
+}
+.title{
+    font-size: 35px;
+}
+.navtitle{
+    font-size: 25px;
+}
+.movietitle{
+    font-size: 35px;
+    padding: 30px;
+    justify-content: center;
+}
+.searchtitle{
+    font-size: 25px;
+    padding-left: 0px;
+}
+.listitem{
+    font-size: 20px;
+    padding-left: 15px;
+}
+.form_feedback{
+    margin-bottom: 10px;
+    margin-top:10px;
+    margin-right: 50px;
+}
+#numresults{
+    font-size: 20px;
+    background-color: #E9E9E9;
+    padding: 10px;
+}
+.quickinfo{
+    background-color: #E9E9E9;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.sitedescription{
+    background-color: #E9E9E9;
+    font-size: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+.info{
+    padding-top: 15px;
+}
+.lesspad{
+    padding:5px;
+}
+.viewmore{
+    font-size: 20px;
+    /* color: black; */
+    position: absolute;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    /* margin-top: -50px; */
+    margin-left: -50px;
+}
+#allbutton{
+    position: relative;
+}
+.headerimage{
+    height:324px;
+    width: 1024px;
+    object-fit: cover;
+    object-position: right 65%;
+}
+.forminput{
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.choose{
+    padding-right:10px;
+}
+.nospace{
+    padding-left:0px;
+    padding-right:15px;
+}
+input[type='text']{
+    font-size: 20px;
+}
+.textareatext{
+    font-size: 20px;
+}
+.highlight{
+    background-color:#FFFF00;
+}
+#other_option {
+    display: none;
+}    
+#other_option2 {
+    display: none;
+}
+.error{
+ border:1px solid red;
+}
+.radiodiv{
+    margin-right:5px;
+}
+
+
