@@ -2,26 +2,17 @@
 
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
-<script>
-    let mostpopular = {{mostpopular|tojson}}
-    console.log(mostpopular)
-</script>
 
-<div class = "container coolfont">
-    <div class = "row headerhome">
-        <img src = ""
-        class="fullwidth" alt = "Star Wars image header">
+<div class = "homecontainer">
+    <img src = "https://thewallpaper.co/wp-content/uploads/2020/08/black-and-white-city-houses-skyline-landscape-amazing-city-view-beautiful-place-wallpaper-free-city-photos-best-town-city-images-for-windows-large-places-background-1600x1024-1.jpg" alt = "background home" style="width:100%;">
+    <div class = "centered container">
+        <p id = "hometitle">DISTRESS SIGNALING</p>
+        <p id = "homesubtitle">Learn how to call for help in an emergency situation</p>
+        <button type="button" class="btn btn-outline-secondary" id ="start">Start Learning</button>
     </div>
-    <div class = "row sitedescription">
-        welcome to star wars universe, your guide to the star wars films franchise!
-    </div>
-    <div class = "row">
-        <span class = "title accent">most popular this week</span><br>
-    </div>
-    <div class = "row" id = "mostpop"></div>
+    
 </div>
 
-    
 {% endblock %}
 
 

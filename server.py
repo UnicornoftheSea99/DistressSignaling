@@ -142,138 +142,25 @@ fire_simulation = {
 };
 
 
-
 # current_id = 12;
 
 # ROUTES
 
 @app.route('/')
 def welcome():
-   return render_template('home_page.html', mostpopular = mostpopular)  
+   return render_template('home_page.html')  
 
-@app.route('/view/all')
-def all_films():
-    global data
-    return render_template('all_films.html', all = data)   
+# @app.route('/view/all')
+# def all_films():
+#     global data
+#     return render_template('all_films.html', all = data)   
 
-@app.route('/view/<id>')
-def film_info(id = None):
-    global data
-    movie = data[int(id)]
-    return render_template('film_info.html', movie = movie)    
+# @app.route('/view/<id>')
+# def film_info(id = None):
+#     global data
+#     movie = data[int(id)]
+#     return render_template('film_info.html', movie = movie)    
  
-@app.route('/add')
-def add_info():
-    global data
-    global all_characters
-    global all_droids
-    return render_template('add_film.html',all_characters = all_characters, all_droids = all_droids) 
-
-@app.route('/edit/<id>')
-def edit_info(id = None):
-    global data
-    global all_characters
-    global all_droids
-    movie = data[int(id)]
-    return render_template('edit_film.html', movie = movie,all_characters = all_characters, all_droids = all_droids)    
-
-# ajax to add
-@app.route('/add_data', methods=['GET', 'POST'])
-def add():
-    global data 
-    global current_id 
-
-    json_data = request.get_json() 
-    title = json_data["title"]
-    release_year = json_data["release_year"]
-    era = json_data["era"]
-    series = json_data["category"]
-    mains2 = json_data["main_characters"]
-    mains = mains2.split(',')
-    droids2 = json_data["droids"]
-    droids = droids2.split(',')
-    summary = json_data["summary"]
-    imgurl = json_data["image"]
-  
-    current_id += 1
-    new_id = current_id 
-    new_entry = {
-        "id":  str(current_id),
-        "title": title,
-        "release_year": release_year,
-        "era": era,
-        "category": series,
-        "main_characters": mains,
-        "droids": droids,
-        "summary": summary,
-        "image": imgurl
-    }
-    data[current_id]=new_entry
-    return jsonify(data = data)
-
-@app.route('/edit/edit_data/<id>', methods=['POST'])
-def edit(id = None):
-    global data 
-
-    json_data = request.get_json() 
-    title = json_data["title"]
-    release_year = json_data["release_year"]
-    era = json_data["era"]
-    series = json_data["category"]
-    mains2 = json_data["main_characters"]
-    mains = mains2.split(',')
-    droids2 = json_data["droids"]
-    droids = droids2.split(',')
-    summary = json_data["summary"]
-    imgurl = json_data["image"]
-  
-    modified_entry = {
-        "id": id,
-        "title": title,
-        "release_year": release_year,
-        "era": era,
-        "category": series,
-        "main_characters": mains,
-        "droids": droids,
-        "summary": summary,
-        "image": imgurl
-    }
-    data[int(id)]=modified_entry
-    return jsonify(data = data)
-
-@app.route('/search/<query>',methods=['GET'])
-def search(query):
-    global data
-    results = []
-    title_results = []
-    category_results = []
-    character_results = []
-    droid_results = []
-    sum_results = []
-    for movie in data:
-        if (query.casefold() in data[movie]["title"].casefold()):
-            results.append(data[movie])
-            title_results.append(data[movie])
-        if (query.casefold() in data[movie]["category"].casefold()):
-            results.append(data[movie])
-            category_results.append(data[movie])
-        if (query.casefold() in data[movie]["summary"].casefold()):
-            results.append(data[movie])
-            sum_results.append(data[movie])
-        char_to_lower = ([x.casefold() for x in data[movie]["main_characters"]])
-        for char in char_to_lower:
-            if (query.casefold() in char):
-                results.append(data[movie])
-                character_results.append(data[movie])
-        droid_to_lower = ([x.casefold() for x in data[movie]["droids"]])
-        for droid in droid_to_lower:
-            if (query.casefold() in droid):
-                results.append(data[movie])
-                droid_results.append(data[movie])
-
-    return render_template('search.html', query = query,results = results, titleres = title_results,
-    catres = category_results,charres = character_results,droidres = droid_results,sumres=sum_results) 
-
 if __name__ == '__main__':
    app.run(debug = True)
 
