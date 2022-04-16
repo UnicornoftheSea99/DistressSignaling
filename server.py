@@ -5,243 +5,145 @@ app = Flask(__name__)
 
 # DATA
 
-data = { 
-1: { 
-"id": "1", 
-"title": "Star Wars: Episode IV - A New Hope",
-"release_year": 1977, 
-"summary": """The film is set 19 years after the formation of the Galactic Empire and 
-the events of Revenge of the Sith; construction has finished on the Death Star, 
-a weapon capable of destroying a planet. After Princess Leia Organa, 
-a leader of the Rebel Alliance, receives the weapon's plans in the hope of finding 
-a weakness, she is captured and taken to the Death Star. Meanwhile, a young farmer 
-named Luke Skywalker meets Obi-Wan Kenobi, who has lived in seclusion for years 
-on the desert planet of Tatooine. When Luke's home is burned and his aunt and uncle 
-killed, Obi-Wan begins Luke's Jedi training as they—along with Han Solo, Chewbacca, 
-C-3PO, and R2-D2—attempt to rescue the princess from the Empire.""", 
-"main_characters": ["Luke Skywalker", "Leia Organa", "Han Solo", "Darth Vader"],
-"droids":["R2-D2", "C-3PO"],
-"era": "0 ABY",
-"category":"original",
-"image": "https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
-},
-2: { 
-"id": "2", 
-"title": "Star Wars: Episode V - The Empire Strikes Back",
-"release_year": 1980, 
-"summary": """The film concerns the continuing struggles of the Rebel Alliance against 
-the Galactic Empire. During the film, Han Solo, Chewbacca, and Princess Leia Organa 
-are being pursued across space by Darth Vader and his elite forces. Meanwhile, 
-Luke Skywalker begins his major Jedi training with Yoda in Dagoba, after an instruction 
-from Obi-Wan Kenobi's spirit. In an emotional and near-fatal confrontation with Vader, 
-Luke is presented with a horrific revelation and must face his destiny. """, 
-"main_characters": ["Luke Skywalker", "Leia Organa", "Han Solo", "Darth Vader"],
-"droids":["R2-D2", "C-3PO"],
-"era": "3 ABY",
-"category":"original",
-"image": "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
-},
-3: { 
-"id": "3", 
-"title": "Star Wars: Episode VI - Return of the Jedi",
-"release_year": 1983, 
-"summary": """Luke Skywalker and friends travel to Tatooine to rescue their friend Han Solo
- from the vile Jabba the Hutt. The Empire prepares to crush the Rebellion with a more 
- powerful Death Star, while the Rebel fleet mounts a massive attack on the space station. 
- Luke Skywalker confronts his father, Anakin, in a final climactic duel before the evil 
- Emperor Sidious. Features iconic slave Leia bikini and ewoks.""", 
-"main_characters": ["Luke Skywalker", "Leia Organa", "Han Solo", "Darth Vader"],
-"droids":["R2-D2", "C-3PO"],
-"era": "4 ABY",
-"category":"original",
-"image": "https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg"
-},
-4: { 
-"id": "4", 
-"title": "Star Wars: Episode I - The Phantom Menace",
-"release_year": 1999, 
-"summary": """Thirty-two years before the events of Star Wars: Episode IV A New Hope, there
- is a trade dispute between the Trade Federation and the outlying systems of the Galactic
-Republic, which has led to a blockade of the small planet of Naboo. Two Jedi, Master 
-Qui-Gon Jinn and his Padawan, Obi-Wan Kenobi, liberate the queen and her guards from the 
-battle-droid invasion. In their escape, the queen’s starship is damaged by Federation 
-battleships and so the Jedi decide to land on the nearby planet Tatooine. While searching 
-for a new hyperdrive generator, they befriend young Anakin Skywalker, a slave boy, who 
-Qui-Gon believes may be the Chosen One and wants to train to become a Jedi.  The queen, 
-after failing to get aid from the Galactic Senate, returns to Naboo and takes back her 
-planet with the help of the Great Gungan Army. As this happens, Anakin accidentally takes 
-control of a starfighter and goes on to destroy the Federation's Droid Control Ship from 
-the inside and Qui-Gon and Obi-Wan fight sith apprentice Darth Maul.""", 
-"main_characters": ["Anakin Skywalker", "Obi-Wan Kenobi", "Padme Amidala", "Qui-Gon Jinn"],
-"droids":["R2-D2", "C-3PO", "Separist Droid Army"],
-"era": "32 BBY",
-"category":"prequel",
-"image": "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg"
-},
-5: { 
-"id": "5", 
-"title": "Star Wars: Episode II - Attack of the Clones",
-"release_year": 2002, 
-"summary": """The film is set nine years after the Battle of Naboo, when the galaxy is on 
-the brink of civil war. Under the leadership of renegade Jedi Master Count Dooku, thousands
- of systems threaten to secede from the Republic. When an assassination attempt is made on
-Senator Padmé Amidala, the former Queen of Naboo, Jedi apprentice Anakin Skywalker is 
-assigned to protect her, while his mentor Obi-Wan Kenobi is assigned to investigate the
-assassination attempt. Soon the Jedi are drawn into the heart of the Separatist movement,
-and the beginning of a new threat to the galaxy: the Clone Wars.""", 
-"main_characters": ["Anakin Skywalker", "Obi-Wan Kenobi", "Padme Amidala"],
-"droids":["R2-D2", "C-3PO", "Separist Droid Army"],
-"era": "22 BBY",
-"category":"prequel",
-"image": "https://m.media-amazon.com/images/M/MV5BMDAzM2M0Y2UtZjRmZi00MzVlLTg4MjEtOTE3NzU5ZDVlMTU5XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg"
-},
-6: { 
-"id": "6", 
-"title": "Star Wars: Episode III - Revenge of the Sith",
-"release_year": 2005, 
-"summary": """Three years after the First Battle of Geonosis and onset of the Clone Wars,
-the noble Jedi Knights have been leading a massive clone army into a galaxy-wide battle 
-against the Confederacy of Independent Systems. The Supreme Chancellor of the Galactic 
-Republic reveals his true nature as a Sith Lord as he unveils a plot to rule the galaxy by
-transforming the Republic into a Galactic Empire. Jedi hero Anakin Skywalker is seduced by
-the dark side of the Force to become Darth Sidious's new apprentice Darth Vader. 
-The Jedi are all but eliminated with Obi-Wan Kenobi and Jedi Master Yoda forced into hiding.""", 
-"main_characters": ["Anakin Skywalker", "Obi-Wan Kenobi", "Padme Amidala"],
-"droids":["R2-D2", "C-3PO", "R4-P17", "Separist Droid Army"],
-"era": "19 BBY",
-"category":"prequel",
-"image": "https://m.media-amazon.com/images/M/MV5BNTc4MTc3NTQ5OF5BMl5BanBnXkFtZTcwOTg0NjI4NA@@._V1_.jpg"
-},
-7: { 
-"id": "7", 
-"title": "Star Wars: Episode VII - The Force Awakens",
-"release_year": 2015, 
-"summary": """The story begins thirty years after the events of Star Wars: Episode VI 
-Return of the Jedi. The First Order has risen from the ashes of the Galactic Empire 
-and is opposed by General Leia Organa and the Resistance, both of which seek to find 
-the missing Jedi Master Luke Skywalker. In the midst of this search, new heroes rise in 
-the form of Rey, a 19 year-old girl and a Force-sensitive scavenger from Jakku; Finn, a 
-stormtrooper who defected from the First Order; and Poe Dameron, the best pilot in the 
-Resistance. They are aided by Han Solo in their search for Skywalker and their mission to 
-destroy the First Order's new superweapon, Starkiller Base, which targets the New Republic 
-and the Resistance for destruction. They are opposed by villains such as Kylo Ren, a dark 
-warrior with a mysterious past; and General Armitage Hux, the commander of Starkiller Base.""", 
-"main_characters": ["Rey", "Finn", "Poe Dameron", "Kylo Ren"],
-"droids":["R2-D2", "C-3PO", "BB-8"],
-"era": "34 ABY",
-"category":"sequel",
-"image": "https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_.jpg"
-},
-8: { 
-"id": "8", 
-"title": "Star Wars: Episode VIII - The Last Jedi",
-"release_year": 2017, 
-"summary": """The Last Jedi begins immediately after the events of Star Wars: Episode VII 
-The Force Awakens, set thirty years after the conclusion of the first Star Wars trilogy. 
-It begins from the end scene of the previous film, with Rey holding out Luke Skywalker’s 
-lightsaber to him and follows her journey training under him. It also follows along with 
-the story of the war between General Leia Organa's Resistance and the First Order. 
-Features porgs, blue milk, red saltland, and force bond.""", 
-"main_characters": ["Rey", "Finn", "Poe Dameron", "Kylo Ren","Luke Skywalker"],
-"droids":["R2-D2", "C-3PO", "BB-8"],
-"era": "34 ABY",
-"category":"sequel",
-"image": "https://m.media-amazon.com/images/M/MV5BMjQ1MzcxNjg4N15BMl5BanBnXkFtZTgwNzgwMjY4MzI@._V1_.jpg"
-},
-9: { 
-"id": "9", 
-"title": "Star Wars: Episode IX - The Rise of Skywalker",
-"release_year": 2019, 
-"summary": """While the First Order continues to ravage the galaxy, Rey finalizes her 
-training as a Jedi. But danger suddenly rises from the ashes as the evil Emperor Palpatine 
-mysteriously returns from the dead. While working with Finn and Poe Dameron to fulfill a 
-new mission, Rey will not only face Kylo Ren once more, but she will also finally discover 
-the truth about her parents as well as a deadly secret that could determine her future and 
-the fate of the ultimate final showdown that is to come.Features Old Man Lando Calrissian 
-and Zombie Palpatine.""", 
-"main_characters": ["Rey", "Finn", "Poe Dameron", "Kylo Ren"],
-"droids":["R2-D2", "C-3PO", "BB-8"],
-"era": "35 ABY",
-"category":"sequel",
-"image": "https://lumiere-a.akamaihd.net/v1/images/star-wars-the-rise-of-skywalker-theatrical-poster-1000_ebc74357.jpeg?region=0%2C0%2C891%2C1372"
-},
-10: { 
-"id": "10", 
-"title": "Rogue One: A Star Wars Story",
-"release_year": 2016, 
-"summary": """Former scientist Galen Erso lives on a farm with his wife and young daughter, 
-Jyn. His peaceful existence comes crashing down when the evil Orson Krennic takes him away 
-from his beloved family. Many years later, Galen becomes the Empire's lead engineer for the 
-most powerful weapon in the galaxy, the Death Star. Knowing that her father holds the key 
-to its destruction, Jyn joins forces with a spy and other resistance fighters to steal the 
-space station's plans for the Rebel Alliance.""", 
-"main_characters": ["Jyn Erso", "Cassian Andor", "Chirrut Imwe", "Baze Malbus", "Orson Krennic", "Saw Gerrera", "Galen Erso"],
-"droids":["K-2SO"],
-"era": "0 BBY",
-"category":"anthology",
-"image": "https://m.media-amazon.com/images/M/MV5BMjEwMzMxODIzOV5BMl5BanBnXkFtZTgwNzg3OTAzMDI@._V1_FMjpg_UX1000_.jpg"
-},
-11: { 
-"id": "11", 
-"title": "Solo: A Star Wars Story",
-"release_year": 2018, 
-"summary": """Young Han Solo finds adventure when he joins forces with a gang of galactic 
-smugglers and a 190-year-old Wookie named Chewbacca. Indebted to the gangster Dryden Vos, 
-the crew devises a daring plan to travel to the mining planet Kessel to steal a batch of 
-valuable coaxium. In need of a fast ship, Solo meets Lando Calrissian, the suave owner of 
-the perfect vessel for the dangerous mission -- the Millennium Falcon. Features lucky dice.""", 
-"main_characters": ["Han Solo", "Chewbacca", "Lando Calrissian", "Qi’ra", "Dryden Vos", "Tobias Beckett"],
-"droids":["L3-37"],
-"era": "10 BBY",
-"category":"anthology",
-"image": "https://flxt.tmsimg.com/assets/p14595356_p_v8_ak.jpg"
-},
-12: { 
-"id": "12", 
-"title": "Star Wars: The Clone Wars",
-"release_year": 2008, 
-"summary": """The film is set during the three-year time period between the films 
-Star Wars: Episode II Attack of the Clones (2002) and Star Wars: Episode III Revenge 
-of the Sith (2005). The plot focuses on a struggle between the Galactic Republic and the 
-Confederacy of Independent Systems—each vying for Jabba the Hutt's permission to use 
-Hutt Space's trade routes. In an attempt to gain Jabba's favor, Sith Lord and Separatist 
-leader Count Dooku kidnaps Jabba's son Rotta, in hopes of framing the Republic's Jedi Order
-as the true captors. Features Young Padawan Ahsoka Tano.""", 
-"main_characters": ["Anakin Skywalker", "Obi-Wan Kenobi", "Padme Amidala", "Yoda", "Ahsoka Tano", "Jabba the Hutt"],
-"droids":["R2-D2", "C-3PO", "Separist Droid Army"],
-"era": "22 BBY",
-"category":"prequel",
-"image": "https://m.media-amazon.com/images/M/MV5BZWFlNzRmOTItZjY1Ni00ZjZkLTk5MDgtOGFhOTYzNWFhYzhmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"
-}
-};
-
-mostpopular = {
+learning_data = {
     "1": { 
-    "id": "3", 
-    "title": "Star Wars: Episode VI - Return of the Jedi",
-    "image": "https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg"
+    "id": "1", 
+    "page_title": "Introduction",
+    "info1": ["What is a distress signal?", "A distress signal, also known as a distress call, is an internationally recognized way of indicating that you are in serious and/or immediate danger and are in need of help."],
+    "info2": [ "","You should not use a distress signal if you are not in serious and/or immediate danger."],
+    "info3":[ "",""],
+    "media": ["https://pbs.twimg.com/media/DPPj9YeXcAI2P8D.jpg","https://aceboater.com/media/guide/1/visual-distress-signals.jpg"],
+    "category": "introduction",
+    "subcategory": ""
     },
     "2": { 
-    "id": "1", 
-    "title": "Star Wars: Episode IV - A New Hope",
-    "image": "https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
+    "id": "2", 
+    "page_title": "Maritime Distress Signals",
+    "info1": ["","We will first go over maritime boat signals, that is, distress signals that ships at sea use to communicate need for help."],
+    "info2": [ "","The types of signals are divided into three categories: visual, sound, and radio."],
+    "info3": [ "",""],
+   "media":["https://assets.kalkomey.com/boaterexam/images/fm/boatingresources/visual-distress-signals.gif"],
+    "category": "maritime",
+    "subcategory": "intro"
     },
-   "3": { 
+    "3": { 
+    "id": "3", 
+    "page_title": "Visual Maritime Distress Signals",
+    "info1": ["What are common visual distress signals?", ["Red flares/sparks","Orange Smoke","Sea Marker Dye","Orange Distress Flag","Waving arms"]],
+    "info2": [ "What is the benefit of visual distress signals?","The benefit of visual distress signals is that they not only draw attention to a ship’s distress from a distance but they help indicate the location of the troubled party.","Note: it is required by federal law for ships sailing on coastal waters to carry visual distress signals."],
+    "info3": ["","Note: it is required by federal law for ships sailing on coastal waters to carry visual distress signals."],
+    "media":["https://ke-courses-production.s3.amazonaws.com/asset_files/production/1559/attachments/original/distress_signals_set.jpg?1503937958"],
+    "category": "maritime",
+    "subcategory": "visual"
+    },
+    "4": { 
     "id": "4", 
-    "title": "Star Wars: Episode I - The Phantom Menace",
-    "image": "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg"
-   }
+    "page_title": "Sound Maritime Distress Signals",
+    "info1": ["What are common sound maritime distress signals?", ["Firing gun or rocket at regular intervals","Making a continuous sound with a fog-signaling apparatus (aka foghorn), bell, or whistle","Yelling for help (usually if there are no other options)"]],
+    "info2": [ "What are the benefits of sound maritime distress signals?","They grab the attention of local vessels or settlements"],
+    "info3": [ "",""],
+    "media": ["https://www.plastimo.com/media/catalog/product/cache/2/image/1200x/040ec09b1e35df139433887a97daa66f/p/l/pls_trompe-.jpg","https://m.media-amazon.com/images/I/81InNZC9uDL.jpg"],
+    "category": "maritime",
+    "subcategory": "sound"
+    },
+    "5": { 
+    "id": "5", 
+    "page_title": "Maritime Radio Distress Signals",
+    "info1": ["How do you communicate distress through the radio?", ["Transmit a spoken Mayday message ('Mayday, Mayday, Mayday. This is [boat name/call sign]. x3')", "Send out an SOS message by Morse Code "]],
+    "info2": [ "","Fun fact: Mayday comes from the English pronunciation of the French phrase for help “m’aidez”"],
+    "info3": [ "",""],
+    "media": ["https://i0.wp.com/www.malpope.com/wp-content/uploads/2021/05/ba665b97967605506331d3bc0c012ab7-e1619862114772.jpg?resize=850%2C667&ssl=1","https://pbs.twimg.com/media/DPPj9YeXcAI2P8D.jpg"],
+    "category": "maritime",
+    "subcategory": "radio"
+    },
+    "6": { 
+    "id": "6", 
+    "page_title": "Maritime Distress Signals Review",
+    "info1": ["Check out this short video to review what you’ve learned!", ""],
+    "info2": [ "",""],
+    "info3": [ "",""],
+    "media": ["https://www.youtube.com/watch?v=zjVJKa7faW8&feature=emb_logo"],
+    "category": "maritime",
+    "subcategory": "video"
+    },
+    "7": { 
+    "id": "7", 
+    "page_title": "Wilderness Distress Signals",
+    "info1": ["", "This group of distress signals applies if, for example, you are stranded on a deserted island or lost in the wilderness. These solution assume you do not have proper equipment like a satellite phone, flare, or whistle to call for help."],
+    "info2": [ "",""],
+    "info3": [ "",""],
+    "media": ["https://media.30seconds.com/tip/lg/Youre-About-to-Be-Stranded-on-a-Deserted-Island-What-4-Ite-15490-8661b483e3-1516247705.jpg"],
+    "category": "wilderness",
+    "subcategory": "intro"
+    },
+    "8": { 
+    "id": "8", 
+    "page_title": "Reflective Surfaces",
+    "info1": ["", "Reflective surfaces can be used to signal airplanes flying up above. A signal mirror is the preferred tool but anything reflective like a credit card or belt buckle will work."],
+    "info2": [ "",""],
+    "info3": [ "",""],
+    "media": ["https://www.survivalresources.com/images/banner/PageHeader.Original.jpg"],
+    "category": "wilderness",
+    "subcategory": "reflective"
+    },
+    "9": { 
+    "id": "9", 
+    "page_title": "Signal Fires",
+    "info1": ["Why light a signal fire", "A signal fire is useful because it can be see for miles."],
+    "info2": [ "What should a signal fire look like?",["One or Three Signal Fires in a Triangle Formation in an open space","(Depending on Resources) First layer dry tinder, second layer wood kindling, third layer moss and decaying plant life (optional), final layer green leafy vegetation"]],
+    "info3":[ "",""],
+    "media": ["https://www.youtube.com/watch?v=0G857JwMsM8"],
+    "category": "wilderness",
+    "subcategory": "fire"
+    },
+     "10": { 
+    "id": "10", 
+    "page_title": "Street Distress Signals",
+    "info1": ["", "Aside from being lost at sea or stranded on a deserted island, you may have other reasons to signal for distress. And though most people seem to have easy access to a phone at all times, there are scenarios when calling for help may not be possible."],
+    "info2": [ "In what specific scenarios may one need to call for help but be unable to?","Domestic Violence, Human Trafficking, and Kidnapping"],
+    "info3": [ "What should I do if I find myself in one of these scenarios and can’t call for help?","Do the international hand signal for help"],
+    "media": ["https://www.verywellhealth.com/thmb/WNrtvId6QPMIaIYGnnEPXn6rqfk=/614x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Tiktokhandsignalcloseup-FINAL-46d537b506fb484eb69b851c8acbf772.jpg"],
+    "category": "streets",
+    "subcategory": "intro"
+    },
+     "11": { 
+    "id": "11", 
+    "page_title": "Street Distress Signals",
+    "info1": ["", ""],
+    "info2": [ "",""],
+    "info3": [ "",""],
+    "media": ["https://www.youtube.com/watch?v=AFLZEQFIm7k&feature=emb_logo"],
+    "category": "streets",
+    "subcategory": "video"
+    },
 };
 
-all_characters = ["Luke Skywalker", "Leia Organa", "Darth Vader","Anakin Skywalker", 
-"Obi-Wan Kenobi", "Padme Amidala", "Yoda", "Ahsoka Tano", "Rey", "Finn", "Poe Dameron", 
-"Kylo Ren","Han Solo", "Chewbacca", "Lando Calrissian", "Jabba the Hutt","Jyn Erso", 
-"Cassian Andor", "Chirrut Imwe", "Baze Malbus", "Orson Krennic", "Saw Gerrera", "Galen Erso",
- "Qi’ra", "Dryden Vos", "Tobias Beckett","Qui-Gon Jinn"];
+fire_simulation = {
+    "1": { 
+    "ordernum": "1", 
+    "name":"Dry Tinder",
+    "image":"https://b.rgbimg.com/users/l/lu/lusi/600/mgyuCEy.jpg"
+    },
+    "2": { 
+    "ordernum": "3", 
+    "name":"Moss/Decaying Plants",
+    "image":"https://cdn.shopify.com/s/files/1/0260/8191/9066/products/Chartreuse_580x.png?v=1629396828"
+    },
+    "3": { 
+    "ordernum": "4", 
+    "name":"Leafy Vegetation",
+    "image":"https://m.media-amazon.com/images/I/81BHFiAx4BL._AC_SX425_.jpg"
+    },
+     "4": { 
+    "ordernum": "2", 
+    "name":"Wood Kindling",
+    "image":"https://m.media-amazon.com/images/I/513Xz4L6SHL._AC_US200_.jpg"
+    } 
+};
 
-all_droids = ["R2-D2", "C-3PO", "BB-8","Separist Droid Army", "L3-37","K-2SO"];
 
-current_id = 12;
+
+# current_id = 12;
 
 # ROUTES
 
