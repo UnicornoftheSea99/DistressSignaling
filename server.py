@@ -62,7 +62,7 @@ learning_data = {
     "info1": ["Check out this short video to review what you’ve learned!", ""],
     "info2": [ "",""],
     "info3": [ "",""],
-    "media": ["https://www.youtube.com/watch?v=zjVJKa7faW8&feature=emb_logo"],
+    "media": ["https://www.youtube.com/embed/zjVJKa7faW8"],
     "category": "maritime",
     "subcategory": "video"
     },
@@ -92,9 +92,9 @@ learning_data = {
     "info1": ["Why light a signal fire", "A signal fire is useful because it can be see for miles."],
     "info2": [ "What should a signal fire look like?",["One or Three Signal Fires in a Triangle Formation in an open space","(Depending on Resources) First layer dry tinder, second layer wood kindling, third layer moss and decaying plant life (optional), final layer green leafy vegetation"]],
     "info3":[ "",""],
-    "media": ["https://www.youtube.com/watch?v=0G857JwMsM8"],
+    "media": ["https://www.youtube.com/embed/0G857JwMsM8"],
     "category": "wilderness",
-    "subcategory": "fire"
+    "subcategory": "video"
     },
      "10": { 
     "id": "10", 
@@ -112,7 +112,7 @@ learning_data = {
     "info1": ["", ""],
     "info2": [ "",""],
     "info3": [ "",""],
-    "media": ["https://www.youtube.com/watch?v=AFLZEQFIm7k&feature=emb_logo"],
+    "media": ["https://www.youtube.com/embed/AFLZEQFIm7k"],
     "category": "streets",
     "subcategory": "video"
     },
@@ -150,10 +150,38 @@ fire_simulation = {
 def welcome():
    return render_template('home_page.html')  
 
-# @app.route('/view/all')
-# def all_films():
-#     global data
-#     return render_template('all_films.html', all = data)   
+@app.route('/learn/introduction')
+def learn_intro():
+    global learning_data
+    page_info = learning_data["1"]
+    next_category = learning_data["2"]["category"]
+    next_subcategory = learning_data["2"]["subcategory"]
+    print(page_info)
+    return render_template('learning.html', page_info = page_info, learning_data = learning_data, next_category=next_category,next_subcategory=next_subcategory)  
+
+@app.route('/learn/<category>/<subcategory>')
+def learn(category,subcategory):
+    global learning_data
+    page_info = {}
+    for item in learning_data:
+        # print(learning_data[item])
+        if category == learning_data[item]["category"] and subcategory == learning_data[item]["subcategory"]:
+            page_info = learning_data[item]
+    # print(page_info)
+    next_id = str(int(page_info["id"]) + 1)
+    print(next_id)
+    next_category = learning_data[next_id]["category"]
+    next_subcategory = learning_data[next_id]["subcategory"]
+    if page_info["subcategory"] == "video":
+        video_link = page_info["media"][0].replace("watch?v=", "embed/watch?v=")
+        return render_template('learningvideo.html', page_info = page_info, learning_data = learning_data,next_category=next_category,next_subcategory=next_subcategory,video_link=video_link) 
+    else:  
+        return render_template('learning.html', page_info = page_info, learning_data = learning_data,next_category=next_category,next_subcategory=next_subcategory)   
+
+@app.route('/learn/signal_fire_activity')
+def build_a_fire():
+    global fire_simulation
+    return render_template('firesim.html', fire_material = fire_simulation)   
 
 # @app.route('/view/<id>')
 # def film_info(id = None):
