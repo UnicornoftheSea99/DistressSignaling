@@ -1,0 +1,134 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+{{ super() }}
+
+<head>
+    <title></title>
+    <style type="text/css">
+        table
+        {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+        }
+        table td, table th
+        {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+        table thead th
+        {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+        table tr:nth-child(odd)
+        {
+            background: #fff;
+        }
+        table tr:nth-child(even)
+        {
+            background: #F5FAFA;
+        }
+    </style>
+</head>
+<body>
+    <table width="90%" class="table">
+{#        <caption>#}
+{#            <h2>#}
+{#                Previous Testing Record</h2>#}
+{#        </caption>#}
+        <thead>
+            <tr>
+                <th>
+                    date time
+                </th>
+                <th>
+                    status
+                </th>
+                <th>
+                    score
+                </th>
+                <th>
+                    level
+                </th>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                2022-04-16
+            </td>
+            <td>
+                completed
+            </td>
+            <td>
+                9/10
+            </td>
+            <td>
+                A
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2022-04-15
+            </td>
+            <td>
+                completed
+            </td>
+            <td>
+                9/10
+            </td>
+            <td>
+                A
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2022-04-15
+            </td>
+            <td>
+                completed
+            </td>
+            <td>
+                8/10
+            </td>
+            <td>
+                B
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2022-04-14
+            </td>
+            <td>
+                completed
+            </td>
+            <td>
+                8/10
+            </td>
+            <td>
+                B
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2022-04-14
+            </td>
+            <td>
+                completed
+            </td>
+            <td>
+                8/10
+            </td>
+            <td>
+                B
+            </td>
+        </tr>
+
+    </table>
+</body>
+
+{% endblock content %}
