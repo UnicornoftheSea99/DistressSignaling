@@ -188,7 +188,19 @@ def build_a_fire():
 #     global data
 #     movie = data[int(id)]
 #     return render_template('film_info.html', movie = movie)    
- 
+
+@app.route('/sign_up')
+def sign_up():
+    return render_template('sign_up.html')
+
+@app.route('/log_in')
+def log_in():
+    return render_template('log_in.html')
+
+@app.route('/record')
+def get_record():
+    return render_template('record.html')
+
 if __name__ == '__main__':
    app.run(debug = True)
 
