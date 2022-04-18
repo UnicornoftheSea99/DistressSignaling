@@ -255,6 +255,10 @@ def get_record():
     print(activity)
     return render_template('record.html', activity = activity)
 
+@app.route('/certificate')
+def certificate():
+    return render_template('certificate.html')
+
 if __name__ == '__main__':
    app.run(debug = True)
 
