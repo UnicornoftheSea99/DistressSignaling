@@ -192,6 +192,8 @@ feedback = {
 
 activity = {}
 
+score = 0
+
 # current_id = 12;
 
 # ROUTES
@@ -259,11 +261,15 @@ def log_in():
 
 @app.route('/test/homepage')
 def th():
+    global score
+    score = 0
+    
     return render_template('testhomepage.html')
 
 
 @app.route('/test/<id>')
 def test(id=None):
+    
     one = test_data[id]
     next_id = str(int(id) + 1)
     return render_template('test.html', one=one, next_id=next_id)
@@ -276,15 +282,17 @@ def get_record():
 # ajax for checking answer in test.js
 @app.route('/check_ans', methods=['GET', 'POST'])
 def check_ans():
+    global score
     json_data = request.get_json()  
     
     ans = json_data["ans"]
     num = json_data["num"]
     
-    correct = "True"
+    correct = "False"
     
-    if ans != test_answers[num]:
-        correct = "False"
+    if ans == test_answers[num]:
+        correct = "True"
+        score += 1
     
     fb = feedback[num]
     
@@ -292,7 +300,8 @@ def check_ans():
 
 @app.route('/certificate')
 def certificate():
-    return render_template('certificate.html')
+    grade = score / len(test_data) * 100
+    return render_template('certificate.html', grade=grade)
 
 if __name__ == '__main__':
    app.run(debug = True)
