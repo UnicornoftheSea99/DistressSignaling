@@ -272,7 +272,13 @@ def test(id=None):
     
     one = test_data[id]
     next_id = str(int(id) + 1)
-    return render_template('test.html', one=one, next_id=next_id)
+    
+    if int(next_id) > len(test_data):
+        next_page = "/certificate"
+    else:
+        next_page = "/test/" + next_id
+    
+    return render_template('test.html', one=one, next_page=next_page)
 
 @app.route('/record')
 def get_record():
