@@ -141,6 +141,9 @@ fire_simulation = {
     } 
 };
 
+test_data = {
+    "1": {"id":"1","question":"1?"}, 
+    "2": {"id":"2","question":"2?"},}
 
 # current_id = 12;
 
@@ -196,6 +199,16 @@ def sign_up():
 @app.route('/log_in')
 def log_in():
     return render_template('log_in.html')
+
+@app.route('/test/homepage')
+def th():
+    return render_template('testhomepage.html')
+
+
+@app.route('/test/<id>')
+def test(id=None):
+    one = test_data[id]
+    return render_template('test.html', one=one)
 
 @app.route('/record')
 def get_record():
