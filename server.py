@@ -183,11 +183,11 @@ test_answers = {
 
 # fill in the rest of quiz info
 feedback = {
-    "1": "temp",
-    "2": "",
-    "3": "",
-    "4": "",
-    "5": "",
+    "1": "feedback",
+    "2": "feedback",
+    "3": "feedback",
+    "4": "feedback",
+    "5": "feedback",
     }
 
 activity = {}
