@@ -173,12 +173,17 @@ test_data = {
           "d": "Red sparks"},
 }
 
+activity = {}
+
 # current_id = 12;
 
 # ROUTES
 
 @app.route('/')
 def welcome():
+   global activity
+   time = datetime.datetime.now()
+   activity[str(time)] = 'home page'
    return render_template('home_page.html')  
 
 @app.route('/learn/introduction')
@@ -188,10 +193,17 @@ def learn_intro():
     next_category = learning_data["2"]["category"]
     next_subcategory = learning_data["2"]["subcategory"]
     print(page_info)
+    global activity
+    time = datetime.datetime.now()
+    activity[str(time)] = 'introduction'
     return render_template('learning.html', page_info = page_info, learning_data = learning_data, next_category=next_category,next_subcategory=next_subcategory)  
 
 @app.route('/learn/<category>/<subcategory>')
 def learn(category,subcategory):
+    global activity
+    time = datetime.datetime.now()
+    activity[str(time)] = category+"/"+subcategory
+    
     global learning_data
     page_info = {}
     for item in learning_data:
@@ -240,7 +252,8 @@ def test(id=None):
 
 @app.route('/record')
 def get_record():
-    return render_template('record.html')
+    print(activity)
+    return render_template('record.html', activity = activity)
 
 if __name__ == '__main__':
    app.run(debug = True)
