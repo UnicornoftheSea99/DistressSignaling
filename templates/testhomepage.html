@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+    .header {
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: rgb(23, 64, 139);
+    }
+
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="header row">Test</div>
+            <div class="subheader row">Are you ready to test your knowledge?</div>
+            <div id="begin" class="row">
+                <a href='/test/1' id="nextbutton"
+                    class="btn btn-outline-secondary" role="button" aria-disabled="true">Begin Test</a>
+            </div>
+        </div>
+
+        <div class="col-md-4"><img src="https://4.imimg.com/data4/HR/US/MY-9264818/safety-first-sign-250x250.jpg"  alt="Safety First"></a></div>
+    </div>
+</div>
+{% endblock %}
