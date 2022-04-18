@@ -2,19 +2,26 @@
 
 {% block content %}
 
-<style>
-    .header {
-        display: block;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        color: rgb(23, 64, 139);
-    }
-
-</style>
 
 <div class="container">
-    <div id="status" class="row">Question {{one.id}} out of 5</div>
-    <div id="question" class="row">{{one.question}}</div>
-    
+
+    <h3>Question {{one.id}} out of 5</h3>
+
+    <form method="post" action="">
+
+        <P>{{one.question}}<BR>
+            <input type="radio" value="a">{{one.a}}<BR>
+            <input type="radio" value="b">{{one.b}}<BR>
+            <input type="radio" value="c">{{one.c}}<BR>
+            <input type="radio" value="d">{{one.d}}<BR>
+        </p>
+
+        <br>
+        <br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Give up?">
+    </form>
+</div>
 </div>
 {% endblock %}
