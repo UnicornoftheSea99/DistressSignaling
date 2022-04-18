@@ -290,6 +290,10 @@ def check_ans():
     
     return jsonify(feedback=fb, correct=correct)
 
+@app.route('/certificate')
+def certificate():
+    return render_template('certificate.html')
+
 if __name__ == '__main__':
    app.run(debug = True)
 
