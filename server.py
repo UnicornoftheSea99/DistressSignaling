@@ -173,6 +173,23 @@ test_data = {
           "d": "Red sparks"},
 }
 
+test_answers = {
+    "1": "c",
+    "2": "b",
+    "3": "c",
+    "4": "c",
+    "5": "b",
+    }
+
+# fill in the rest of quiz info
+feedback = {
+    "1": "temp",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    }
+
 activity = {}
 
 # current_id = 12;
@@ -248,12 +265,30 @@ def th():
 @app.route('/test/<id>')
 def test(id=None):
     one = test_data[id]
-    return render_template('test.html', one=one)
+    next_id = str(int(id) + 1)
+    return render_template('test.html', one=one, next_id=next_id)
 
 @app.route('/record')
 def get_record():
     print(activity)
     return render_template('record.html', activity = activity)
+
+# ajax for checking answer in test.js
+@app.route('/check_ans', methods=['GET', 'POST'])
+def check_ans():
+    json_data = request.get_json()  
+    
+    ans = json_data["ans"]
+    num = json_data["num"]
+    
+    correct = "True"
+    
+    if ans != test_answers[num]:
+        correct = "False"
+    
+    fb = feedback[num]
+    
+    return jsonify(feedback=fb, correct=correct)
 
 if __name__ == '__main__':
    app.run(debug = True)

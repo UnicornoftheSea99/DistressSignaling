@@ -2,12 +2,17 @@
 
 {% block content %}
 
+<script type="text/javascript" src="{{ url_for('static', filename = 'test.js') }}"></script>
+<script>
+    let one = {{one|tojson}}
+    console.log(one)
+</script>
 
 <div class="container">
 
     <h3>Question {{one.id}} out of 5</h3>
 
-    <form method="post" action="">
+    <form id="quiz_answer" class="form-inline">
 
         <P>{{one.question}}<BR>
             <input type="radio" name="1" value="a">{{one.a}}<BR>
@@ -22,6 +27,9 @@
         <input type="submit" value="Submit">
         <input type="reset" value="Give up?">
     </form>
+    <div id="d_correct"></div>
+    <div id="d_feedback"></div>
+    <a href= "{{'/test/%s'|format(next_id)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>
 </div>
 </div>
 {% endblock %}
