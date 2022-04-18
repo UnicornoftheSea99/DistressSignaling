@@ -18,12 +18,12 @@ function check_ans(ans){
         "ans": ans,
         "num": one.id
     }
-    
+
     console.log(ans_json)
 
     $.ajax({
         type: "POST",
-        url: "check_ans",                
+        url: "/check_ans",                
         dataType : "json",
         contentType: "application/json; charset=utf-8",
         // data : JSON.stringify(ans),
