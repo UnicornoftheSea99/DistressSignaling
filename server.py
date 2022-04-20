@@ -304,6 +304,11 @@ def check_ans():
     
     return jsonify(feedback=fb, correct=correct)
 
+@app.route('/test/result')
+def result():
+    result = score
+    return render_template('testresult.html', result=result)
+
 @app.route('/certificate')
 def certificate():
     grade = score / len(test_data) * 100
