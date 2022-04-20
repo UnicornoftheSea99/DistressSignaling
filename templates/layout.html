@@ -42,8 +42,14 @@
           <li class="nav-item">
             <a class="nav-link" href="/test/homepage">TEST</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/record">RECORD</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarRecordMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              RECORD
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarRecordMenu">
+              <a class="dropdown-item" href="/record/activity">Activities</a>
+              <a class="dropdown-item" href="/record/test">Previous Tests</a>
+            </div>
           </li>
           <li class="nav-item">
             <a href= "{{'/log_in'}}" id="log-in-btn" style="float:right" class="btn btn-outline-success my-2 my-sm-0">Log in</a>
