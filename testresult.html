@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+    .header {
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: rgb(23, 64, 139);
+    }
+
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="header row">Test Result</div>
+            <div class="subheader row">Congratulations! You got {{result}}/5 questions correct! You are now know what to do should an emergency occur.</div>
+            <div id="begin" class="row">
+                <a href='/certificate' id="nextbutton"
+                    class="btn btn-outline-secondary" role="button" aria-disabled="true">Certificate of Completion</a>
+            </div>
+        </div>
+
+        <div class="col-md-4"><img src="https://4.imimg.com/data4/HR/US/MY-9264818/safety-first-sign-250x250.jpg"  alt="Safety First"></a></div>
+    </div>
+</div>
+{% endblock %}
