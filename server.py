@@ -318,15 +318,15 @@ def result():
     result = score
     global attempt_cnt
     global user_ans
+    global test_record
     attempt_cnt += 1
-    test_record[attempt_cnt] = "Answers: "+user_ans + " "+"Grades: "+str(grade)
+    test_record[attempt_cnt] = "Answers: "+user_ans + " "+"Grades: "+str(score)
     user_ans = ""
     return render_template('testresult.html', result=result)
 
 @app.route('/certificate')
 def certificate():
     grade = score / len(test_data) * 100
-    global test_record
     return render_template('certificate.html', grade=grade)
 
 if __name__ == '__main__':
