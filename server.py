@@ -609,7 +609,7 @@ def test(id=None):
     next_id = str(int(id) + 1)
     
     if int(next_id) > len(test_data):
-        next_page = "/certificate"
+        next_page = "/test/result"
     else:
         next_page = "/test/" + next_id
     
