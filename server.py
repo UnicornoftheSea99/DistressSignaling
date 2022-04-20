@@ -303,7 +303,7 @@ def check_ans():
     
     correct = "False"
 
-    user_ans += " "+str(ans)
+    user_ans += str(num)+". "+str(ans)+" "
 
     if ans == test_answers[num]:
         correct = "True"
