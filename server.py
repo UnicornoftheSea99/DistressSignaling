@@ -181,13 +181,13 @@ test_answers = {
     "5": "b",
     }
 
-# fill in the rest of quiz info
+# still need a set of data to display the correct answer
 feedback = {
-    "1": "feedback",
-    "2": "feedback",
-    "3": "feedback",
-    "4": "feedback",
-    "5": "feedback",
+    "1": "You typically do not signal other vessels using scents.",
+    "2": "That is the Vulcan salute. To indicate distress, you fold your fingers over your thumb in a fist.",
+    "3": "Wet wood is harder to light and harder to keep burning.",
+    "4": "The recommended format for sending out a Mayday distress signal is “Mayday, Mayday, Mayday. This is [boat name/call sign].”",
+    "5": "Orange sea dye is a common visual maritime distress signal, red sea dye is not.",
     }
 
 activity = {}
