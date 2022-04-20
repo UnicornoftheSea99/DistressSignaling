@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+{{ super() }}
+
+<head>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'record_test.js') }}"></script>
+    <script>
+        let test_record = {{test_record|tojson}}
+    </script>
+    <style type="text/css">
+        table
+        {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+        }
+        table td, table th
+        {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+        table thead th
+        {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+        table tr:nth-child(odd)
+        {
+            background: #fff;
+        }
+        table tr:nth-child(even)
+        {
+            background: #F5FAFA;
+        }
+    </style>
+</head>
+<body>
+
+    <table id = "test_record"></table>
+
+</body>
+
+{% endblock content %}
