@@ -1,18 +1,33 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
 .navtitle{
     font-size: 25px;
 }
 .homecontainer {
-    position: relative;
+    /* position: relative; */
     text-align: center;
     color: black;
+    font-family: 'Roboto', sans-serif;
+}
+.thin{
+    font-weight: 300;
+}
+.bold{
+    font-weight: 500;
+}
+.smallthumb{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
 }
 #hometitle{
     font-size: 50px;
-    text-align: center;
+    /* text-align: center; */
 }
 #homesubtitle{
     font-size: 35px;
-    text-align: center;
+    /* text-align: center; */
 }
 .header{
     font-size: 20px;
@@ -27,12 +42,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#start{
+/* #start{
     font-size: 20px;
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
-}
+} */
 .fireanswer{
     background-color: lightgrey;
     background-clip: content-box;
