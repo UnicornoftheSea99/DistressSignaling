@@ -311,7 +311,7 @@ def check_ans():
     
     fb = feedback[num]
     
-    return jsonify(feedback=fb, correct=correct)
+    return jsonify(feedback=fb, correct=correct, real_ans=test_answers[num])
 
 @app.route('/test/result')
 def result():
