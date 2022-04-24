@@ -14,18 +14,21 @@
 
     <form id="quiz_answer" class="form-inline">
 
-        <P>{{one.question}}<BR>
+        <!-- <P><BR>
             <input type="radio" name="choices" value="a">{{one.a}}<BR>
             <input type="radio" name="choices" value="b">{{one.b}}<BR>
             <input type="radio" name="choices" value="c">{{one.c}}<BR>
             <input type="radio" name="choices" value="d">{{one.d}}<BR>
-        </p>
+        </p> -->
+
+        <p id="rad">{{one.question}}<BR></p>
 
         <br>
         <br>
 
         <input type="submit" value="Submit">
         <input type="button" id="give-up" value="Give up?">
+        <div id="d_buttons"></div>
     </form>
     <div id="d_correct"></div>
     <div id="d_feedback"></div>

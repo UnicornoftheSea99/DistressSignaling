@@ -1,4 +1,24 @@
-$(document).ready(function(){
+var indices = ['a', 'b', 'c', 'd']
+
+$(document).ready(function(){ 
+        // for (var key, value of one)
+        // {
+        $.each(indices, function(i, v) {
+            if (one.hasOwnProperty(v)){
+                $('#rad').append(
+                    $('<input>').prop({
+                        type: 'radio',
+                        id: v,
+                        name: 'choices',
+                        value: v
+                    })
+                )
+
+                $('#rad').append(one[v])
+                $('#rad').append(`<br>`)
+            }
+        })
+
     $('#nextbutton').prop('disabled', true);
 
     $( "#quiz_answer" ).submit(function( event ) {
