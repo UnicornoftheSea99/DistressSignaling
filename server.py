@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify
 app = Flask(__name__)
-import datetime
+import time
 # DATA
 
 learning_data = {
@@ -202,8 +202,8 @@ score = 0
 @app.route('/')
 def welcome():
    global activity
-   time = datetime.datetime.now()
-   activity[str(time)] = 'home page'
+   time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+   activity[time_str] = 'home page'
    return render_template('home_page.html')  
 
 @app.route('/learn/introduction')
@@ -218,15 +218,15 @@ def learn_intro():
     else:
         page_info["end"] = 0
     global activity
-    time = datetime.datetime.now()
-    activity[str(time)] = 'introduction'
+    time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    activity[time_str] = 'introduction'
     return render_template('learning.html', page_info = page_info, learning_data = learning_data, next_category=next_category,next_subcategory=next_subcategory)  
 
 @app.route('/learn/<category>/<subcategory>')
 def learn(category,subcategory):
     global activity
-    time = datetime.datetime.now()
-    activity[str(time)] = category+"/"+subcategory
+    time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    activity[time_str] = category+"/"+subcategory
     
     global learning_data
     page_info = {}
