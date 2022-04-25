@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify
 app = Flask(__name__)
-import datetime
+import time
 # DATA
 
 learning_data = {
@@ -66,8 +66,21 @@ learning_data = {
     "category": "maritime",
     "subcategory": "video"
     },
-    "7": { 
-    "id": "7", 
+    "7": {
+        "id": "7",
+        "page_title": "Maritime Distress Signals Mini Quiz",
+        "question": "Which of the following is not a common maritime distress signal?",
+        "a": "Orange smoke",
+        "b": "Bonfire",
+        "c": "Whistle",
+        "d": "MayDay",
+        "answer": "b",
+        "feedback": "Orange Smoke is a common visual signal, Whistle is a common sound signal, and MayDay is a common radio signal. It is not recommended to build a bonfire on your boat.",
+        "category": "maritime",
+        "subcategory": "quiz",
+    },    
+    "8": { 
+    "id": "8", 
     "page_title": "Wilderness Distress Signals",
     "info1": ["", "This group of distress signals applies if, for example, you are stranded on a deserted island or lost in the wilderness. These solution assume you do not have proper equipment like a satellite phone, flare, or whistle to call for help."],
     "info2": [ "",""],
@@ -76,8 +89,8 @@ learning_data = {
     "category": "wilderness",
     "subcategory": "intro"
     },
-    "8": { 
-    "id": "8", 
+    "9": { 
+    "id": "9", 
     "page_title": "Reflective Surfaces",
     "info1": ["", "Reflective surfaces can be used to signal airplanes flying up above. A signal mirror is the preferred tool but anything reflective like a credit card or belt buckle will work."],
     "info2": [ "",""],
@@ -86,8 +99,8 @@ learning_data = {
     "category": "wilderness",
     "subcategory": "reflective"
     },
-    "9": { 
-    "id": "9", 
+    "10": { 
+    "id": "10", 
     "page_title": "Signal Fires",
     "info1": ["Why light a signal fire", "A signal fire is useful because it can be see for miles."],
     "info2": [ "What should a signal fire look like?",["One or Three Signal Fires in a Triangle Formation in an open space","(Depending on Resources) First layer dry tinder, second layer wood kindling, third layer moss and decaying plant life (optional), final layer green leafy vegetation"]],
@@ -96,8 +109,21 @@ learning_data = {
     "category": "wilderness",
     "subcategory": "video"
     },
-     "10": { 
-    "id": "10", 
+    "11": {
+        "id": "11",
+        "page_title": "Wilderness Distress Signals Mini Quiz",
+        "question": "Which of the following cannot be used as a signal mirror?",
+        "a": "Belt Buckle",
+        "b": "Mirror",
+        "c": "Rock",
+        "d": "Credit Carf",
+        "answer": "c",
+        "feedback": "All of the other options are reflective in some way and therefore can be used as a signal mirror to communicate distress.",
+        "category": "wilderness",
+        "subcategory": "quiz",
+    },      
+     "12": { 
+    "id": "12", 
     "page_title": "Street Distress Signals",
     "info1": ["", "Aside from being lost at sea or stranded on a deserted island, you may have other reasons to signal for distress. And though most people seem to have easy access to a phone at all times, there are scenarios when calling for help may not be possible."],
     "info2": [ "In what specific scenarios may one need to call for help but be unable to?","Domestic Violence, Human Trafficking, and Kidnapping"],
@@ -106,8 +132,8 @@ learning_data = {
     "category": "streets",
     "subcategory": "intro"
     },
-     "11": { 
-    "id": "11", 
+     "13": { 
+    "id": "13", 
     "page_title": "Street Distress Signals",
     "info1": ["", ""],
     "info2": [ "",""],
@@ -116,6 +142,19 @@ learning_data = {
     "category": "streets",
     "subcategory": "video"
     },
+    "14": {
+        "id": "14",
+        "page_title": "Street Distress Signals Mini Quiz",
+        "question": "Which of the following is not a reason to use the international hand signal for help?",
+        "a": "Domestic violence",
+        "b": "Human Trafficking",
+        "c": "Kidnapping",
+        "d": "Fire",
+        "answer": "d",
+        "feedback": "If there is a fire, call 911.",
+        "category": "streets",
+        "subcategory": "quiz",
+    },  
 };
 
 fire_simulation = {
@@ -150,9 +189,7 @@ test_data = {
           "d": "Radio"},
     "2": {"id": "2", "question": "True or False? You separate your first two and second two fingers to indicate distress.",
           "a": "True",
-          "b": "False",
-          "c": None,
-          "d": None},
+          "b": "False"},
     "3": {"id": "3",
           "question": "Which of the following is not ideal fuel for your signal fire?",
           "a": "Moss",
@@ -204,8 +241,8 @@ score = 0
 @app.route('/')
 def welcome():
    global activity
-   time = datetime.datetime.now()
-   activity[str(time)] = 'home page'
+   time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+   activity[time_str] = 'home page'
    return render_template('home_page.html')  
 
 @app.route('/learn/introduction')
@@ -215,16 +252,20 @@ def learn_intro():
     next_category = learning_data["2"]["category"]
     next_subcategory = learning_data["2"]["subcategory"]
     print(page_info)
+    if int(page_info["id"]) == len(learning_data):
+        page_info["end"] = 1
+    else:
+        page_info["end"] = 0
     global activity
-    time = datetime.datetime.now()
-    activity[str(time)] = 'introduction'
+    time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    activity[time_str] = 'introduction'
     return render_template('learning.html', page_info = page_info, learning_data = learning_data, next_category=next_category,next_subcategory=next_subcategory)  
 
 @app.route('/learn/<category>/<subcategory>')
 def learn(category,subcategory):
     global activity
-    time = datetime.datetime.now()
-    activity[str(time)] = category+"/"+subcategory
+    time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    activity[time_str] = category+"/"+subcategory
     
     global learning_data
     page_info = {}
@@ -234,18 +275,27 @@ def learn(category,subcategory):
             page_info = learning_data[item]
     # print(page_info)
     next_id = str(int(page_info["id"]) + 1)
-    print(next_id)
+    # print(next_id)
+    if int(page_info["id"])+1 == len(learning_data):
+        page_info["end"] = 1
+    else:
+        page_info["end"] = 0
     next_category = learning_data[next_id]["category"]
     next_subcategory = learning_data[next_id]["subcategory"]
     if page_info["subcategory"] == "video":
         video_link = page_info["media"][0].replace("watch?v=", "embed/watch?v=")
-        return render_template('learningvideo.html', page_info = page_info, learning_data = learning_data,next_category=next_category,next_subcategory=next_subcategory,video_link=video_link) 
+        return render_template('learningvideo.html', page_info = page_info, learning_data = learning_data,next_category=next_category,next_subcategory=next_subcategory,video_link=video_link)
+    elif page_info["subcategory"] == "quiz":
+        return render_template('miniquiz.html',page_info=page_info, learning_data=learning_data, next_category=next_category, next_subcategory=next_subcategory)
     else:  
-        return render_template('learning.html', page_info = page_info, learning_data = learning_data,next_category=next_category,next_subcategory=next_subcategory)   
+        return render_template('learning.html', page_info = page_info, learning_data = learning_data,next_category=next_category,next_subcategory=next_subcategory)
 
 @app.route('/learn/signal_fire_activity')
 def build_a_fire():
     global fire_simulation
+    global activity
+    time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    activity[time_str] = 'signal fire activity'
     return render_template('firesim.html', fire_material = fire_simulation)   
 
 # @app.route('/view/<id>')
@@ -311,7 +361,7 @@ def check_ans():
     
     fb = feedback[num]
     
-    return jsonify(feedback=fb, correct=correct)
+    return jsonify(feedback=fb, correct=correct, real_ans=test_answers[num])
 
 @app.route('/test/result')
 def result():
