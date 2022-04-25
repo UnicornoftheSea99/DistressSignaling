@@ -1,22 +1,24 @@
-function makeFireMaterial(fire_material){
-    $("#fire_materials").empty()
-    $.each(fire_material, function(index,value){
-        let name = value.name;
-        let imagelink = value.image;
-        let new_material = $("<div class = 'col-3'>")
-        let namerow = $("<div class = 'row'>")
-        let imagerow = $("<div class = 'row imagerow'>")
-        let image = $("<img class = 'img-fluid'>")
-        $(namerow).text(name)
-        $(image).attr("src",imagelink)
-        $(image).attr("alt",name)
-        $(imagerow).append(image)
-        $(new_material).append(namerow)
-        $(new_material).append(imagerow)
-    $("#fire_materials").prepend(new_material)
-    });
-}
+{% extends "layout.html" %}
 
-$(document).ready(function(){ 
-    makeFireMaterial(fire_material)
-})
+{% block content %}
+    <script type="text/javascript" src="{{ url_for('static', filename = 'firesim.js') }}"></script>
+    <script>
+        let fire_material = {{fire_material|tojson}}
+        console.log(fire_material)
+    </script>
+
+    <div class = "container">
+        <div class="row"></div>
+        <div class = "row header">Build a Signal Fire! Drag each material to match the order it would be added from bottom to top</div>
+        <div id = "fire_materials" class = "row"></div>
+        <div id = "fire_answer" class = "row">
+            <div id = "fire1" class = "col-3 fireanswer"></div>
+            <div id = "fire2" class = "col-3 fireanswer"></div>
+            <div id = "fire3" class = "col-3 fireanswer"></div>
+            <div id = "fire4" class = "col-3 fireanswer"></div>
+        </div>
+        <div id = "next" class = "row">
+            <a href= "{{'/test/homepage'}}" id ="test" class="btn btn-outline-secondary" role="button" aria-disabled="true">Go to test</a>
+        </div>
+    </div>
+{% endblock %}
