@@ -2,28 +2,46 @@ var indices = ['a', 'b', 'c', 'd']
 
 $(document).ready(function(){ 
 
-    $.each(indices, function(i, v) {
-        if (one.hasOwnProperty(v)){
-            $('#rad').append(
-                $('<input>').prop({
-                    type: 'radio',
-                    id: v,
-                    name: 'choices',
-                    value: v
-                })
-            )
+        $.each(indices, function(i, v) {
+            if (one.hasOwnProperty(v)){
+                $('#rad').append(
+                    $('<input>').prop({
+                        type: 'radio',
+                        id: v,
+                        name: 'choices',
+                        value: v
+                    })
+                )
+                $('#rad').append(one[v])
+                $('#rad').append(`<br>`)
+            }
+        })
 
-            $('#rad').append(one[v])
-            $('#rad').append(`<br>`)
-        }
-    })
+    // var radios = document.querySelectorAll('input[type=radio]');
+    // var checked = document.querySelectorAll('input[type=radio]:checked');
+    // if(!checked.length){
+    //     $('#submitonly').attr(disabled,true)
+    // }
+    // //attach the event handler to all the radio buttons with forEach and addEventListener
+    // radios.forEach(function(el){
+    // el.addEventListener('click', function(){
+    //     checked = document.querySelectorAll('input[type=radio]:checked');
+    //     if(checked.length){
+    //     //enable the button by removing the attribute
+    //     $('#submitonly').removeAttribute("disabled");
+    //     }
+    // });
+    // });
 
-    $('#nextbutton').prop("disabled", true);
+    $('#nextbutton').hide()
+
 
     $( "#quiz_answer" ).submit(function( event ) {
         event.preventDefault();
         ans = $('input[name="choices"]:checked').val();
         console.log(ans);
+        $('#submitbuttons').hide();
+        $('#nextbutton').show();
 
         check_ans(ans);
       });
@@ -31,6 +49,8 @@ $(document).ready(function(){
     $( "#give-up" ).click(function( event ) {
         ans = "give-up";
         console.log(ans);
+        $('#submitbuttons').hide();
+        $('#nextbutton').show();
         check_ans(ans);
     });
 })
@@ -89,6 +109,5 @@ function display_result(feedback, correct, real_ans){
         console.log(ans_text);
         $("#d_correct").text(`Sorry, but ${ans_text} is  incorrect`)
     }
-
     $("#d_feedback").text(feedback)
 }
