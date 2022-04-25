@@ -4,6 +4,9 @@
     <script type="text/javascript" src="{{ url_for('static', filename = 'firesim.js') }}"></script>
     <script>
         let fire_material = {{fire_material|tojson}}
+        let learning_data = {{learning_data|tojson}};
+        let next_category = next_category
+        let next_subcategory = next_subcategory
         console.log(fire_material)
     </script>
 
@@ -39,8 +42,6 @@
             <div id = "fire3" data-order="3" class = "col-3 fireanswer"></div>
             <div id = "fire4" data-order="4" class = "col-3 fireanswer"></div>
         </div>
-        <div id = "next" class = "row">
-            <a href= "{{'/test/homepage'}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Go to test</a>
-        </div>
+        <a href= "{{'/learn/%s/%s'|format(next_category,next_subcategory)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>
     </div>
 {% endblock %}
