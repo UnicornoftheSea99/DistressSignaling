@@ -1,10 +1,11 @@
 <head type="text/css" media="print">
     <style type="text/css">
         @media print{
-.noprint {display:none;};
+.noprint {display:none;}
 
 }
     </style>
+    <style>a{text-decoration:none}</style>
 </head>
 <body>
 <div  style="width:800px; height:500px; padding:20px; text-align:center; border: 10px solid #787878">
@@ -23,6 +24,9 @@
     </div>
 </div>
 
-<div class="noprint"><button onclick="window.print()">print your certificate</button> </div>
+<div class="noprint">
+    <button><a href= "{{'/'}}" >Go to homepage</a></button>
+    <button onclick="window.print()">print your certificate</button>
+</div>
 
 </body>

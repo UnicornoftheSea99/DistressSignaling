@@ -3,8 +3,8 @@
 {% block content %}
     <script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
     <script>
-        let page_info = {{page_info|tojson}}
-        let learning_data = {{learning_data|tojson}}
+        let page_info = {{page_info|tojson}};
+        let learning_data = {{learning_data|tojson}};
         let next_category = next_category
         let next_subcategory = next_subcategory
         console.log(next_category)

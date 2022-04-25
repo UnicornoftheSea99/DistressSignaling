@@ -3,8 +3,8 @@
 {% block content %}
     <script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
     <script>
-        let page_info = {{page_info|tojson}}
-        let learning_data = {{learning_data|tojson}}
+        let page_info = {{page_info|tojson}};
+        let learning_data = {{learning_data|tojson}};
         let next_category = next_category
         let next_subcategory = next_subcategory
         let video_link = video_link
@@ -22,6 +22,7 @@
             <iframe width="560" height="315" src={{video_link}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div id = "next" class = "row">
+            <a href= "{{'/test/homepage'}}" id ="test" class="btn btn-outline-secondary" role="button" aria-disabled="true">Go to test</a> 
             <a href= "{{'/learn/%s/%s'|format(next_category,next_subcategory)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>
         </div>   
     </div>

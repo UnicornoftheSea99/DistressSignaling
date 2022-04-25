@@ -82,8 +82,14 @@ function display_info(page_info){
         $(imagecol).append(new_image)
     }
     $("#media").append(imagerow);
+    if (page_info.end == 0) {
+        $("#fire").remove()
+    }
+    else {
+        $("#nextbutton").remove()
+    }
 }
 
 $(document).ready(function(){
-    display_info(page_info)   
+    display_info(page_info)
 })
