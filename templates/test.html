@@ -6,6 +6,8 @@
 <script>
     let one = {{one|tojson}}
     console.log(one)
+    let next_page = "{{'%s'|format(next_page)}}"
+    console.log(next_page)
 </script>
 
 <div id = "testq" class="container">
@@ -40,5 +42,6 @@
     <div id = "nextq" class = "row">
         <a href= "{{'%s'|format(next_page)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>
     </div>
+
 </div>
 {% endblock %}

@@ -1,6 +1,7 @@
 var indices = ['a', 'b', 'c', 'd']
 
 $(document).ready(function(){ 
+
         $.each(indices, function(i, v) {
             if (one.hasOwnProperty(v)){
                 $('#rad').append(
@@ -34,13 +35,14 @@ $(document).ready(function(){
 
     $('#nextbutton').hide()
 
+
     $( "#quiz_answer" ).submit(function( event ) {
         event.preventDefault();
-        let str = $( "input" ).first().val()
         ans = $('input[name="choices"]:checked').val();
         console.log(ans);
         $('#submitbuttons').hide();
         $('#nextbutton').show();
+
         check_ans(ans);
       });
 
@@ -54,6 +56,11 @@ $(document).ready(function(){
 })
 
 function check_ans(ans){
+    $('#sub').remove();
+    $('#give-up').remove();
+    console.log(next_page);
+    $('#next').append(`<a href= "${next_page}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>`)
+
     ans_json = {
         "ans": ans,
         "num": one.id
@@ -88,7 +95,6 @@ function check_ans(ans){
 
 function display_result(feedback, correct, real_ans){
     if (correct === "True") {
-        // let ans_text = $(`input[name="choices"][value=${real_ans}]`).prev('label').text();
         ans_text = one[real_ans]
         console.log(ans_text);
         $("#d_correct").text(`${ans_text} is correct!`)
