@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'miniquiz.js') }}"></script>
+<script>
+    let page_info = {{page_info|tojson}}
+    console.log(page_info)
+</script>
+
+<div class="container">
+
+    <h3>{{page_info.page_title}}</h3>
+
+    <form id="quiz_answer" class="form-inline">
+
+
+
+        <p id="rad">{{page_info.question}}<BR></p>
+
+        <br>
+        <br>
+
+        <input type="submit" value="Submit">
+        <input type="button" id="give-up" value="Give up?">
+        <div id="d_buttons"></div>
+    </form>
+    <div id="d_correct"></div>
+    <div id="d_feedback"></div>
+    <a href= "{{'/learn/%s/%s'|format(next_category,next_subcategory)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>
+</div>
+</div>
+{% endblock %}
