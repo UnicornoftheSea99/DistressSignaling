@@ -29,6 +29,15 @@ body{
     font-size: 35px;
     /* text-align: center; */
 }
+#testq{
+    padding-left: 15px;
+}
+.submitbutton{
+    margin-right: 5px;
+}
+#d_feedback{
+    margin-bottom: 20px;
+}
 .header{
     font-size: 20px;
     font-weight: bold;
@@ -68,7 +77,6 @@ body{
 
 #successMessage{
     text-align: center;
-    
 }
 #firebuilt{
     display: block;
@@ -79,7 +87,7 @@ body{
 .sidenav{
     padding-left:0px;
 }
-#intro{
+#introlink{
     padding-top: 10px;
     padding-bottom: 5px;
 }

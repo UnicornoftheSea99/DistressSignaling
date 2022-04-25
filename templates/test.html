@@ -8,31 +8,37 @@
     console.log(one)
 </script>
 
-<div class="container">
+<div id = "testq" class="container">
 
-    <h3>Question {{one.id}} out of 5</h3>
+    <div class = "row header">Question {{one.id}} out of 5</div>
+    <div class = "row">
+        <form id="quiz_answer" class="form-inline">
 
-    <form id="quiz_answer" class="form-inline">
-
-        <!-- <P><BR>
-            <input type="radio" name="choices" value="a">{{one.a}}<BR>
-            <input type="radio" name="choices" value="b">{{one.b}}<BR>
-            <input type="radio" name="choices" value="c">{{one.c}}<BR>
-            <input type="radio" name="choices" value="d">{{one.d}}<BR>
-        </p> -->
-
-        <p id="rad">{{one.question}}<BR></p>
-
-        <br>
-        <br>
-
-        <input type="submit" value="Submit">
-        <input type="button" id="give-up" value="Give up?">
-        <div id="d_buttons"></div>
-    </form>
-    <div id="d_correct"></div>
-    <div id="d_feedback"></div>
-    <a href= "{{'%s'|format(next_page)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>
-</div>
+            <!-- <P><BR>
+                <input type="radio" name="choices" value="a">{{one.a}}<BR>
+                <input type="radio" name="choices" value="b">{{one.b}}<BR>
+                <input type="radio" name="choices" value="c">{{one.c}}<BR>
+                <input type="radio" name="choices" value="d">{{one.d}}<BR>
+            </p> -->
+            <div class = "container">
+            <div class = "row">
+                <p id="rad">{{one.question}}<br></p>
+            </div>
+            <div id = "submitbuttons" class = "row">
+                <input id = "submitonly" class = "submitbutton" type="submit" value="Submit">
+                <input class = "submitbutton" type="button" id="give-up" value="Give up?">
+            </div>
+        </div>
+        </form>
+    </div>
+    <div class = "row">
+        <div id="d_correct"></div><br>
+    </div>
+    <div class = "row">
+        <div id="d_feedback"></div><br>
+    </div>
+    <div id = "nextq" class = "row">
+        <a href= "{{'%s'|format(next_page)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>
+    </div>
 </div>
 {% endblock %}

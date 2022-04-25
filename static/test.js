@@ -1,8 +1,6 @@
 var indices = ['a', 'b', 'c', 'd']
 
 $(document).ready(function(){ 
-        // for (var key, value of one)
-        // {
         $.each(indices, function(i, v) {
             if (one.hasOwnProperty(v)){
                 $('#rad').append(
@@ -13,29 +11,44 @@ $(document).ready(function(){
                         value: v
                     })
                 )
-
                 $('#rad').append(one[v])
                 $('#rad').append(`<br>`)
             }
         })
 
-    $('#nextbutton').prop('disabled', true);
+    // var radios = document.querySelectorAll('input[type=radio]');
+    // var checked = document.querySelectorAll('input[type=radio]:checked');
+    // if(!checked.length){
+    //     $('#submitonly').attr(disabled,true)
+    // }
+    // //attach the event handler to all the radio buttons with forEach and addEventListener
+    // radios.forEach(function(el){
+    // el.addEventListener('click', function(){
+    //     checked = document.querySelectorAll('input[type=radio]:checked');
+    //     if(checked.length){
+    //     //enable the button by removing the attribute
+    //     $('#submitonly').removeAttribute("disabled");
+    //     }
+    // });
+    // });
+
+    $('#nextbutton').hide()
 
     $( "#quiz_answer" ).submit(function( event ) {
         event.preventDefault();
         let str = $( "input" ).first().val()
         ans = $('input[name="choices"]:checked').val();
         console.log(ans);
-
-        $('#nextbutton').prop('disabled', false);
-
+        $('#submitbuttons').hide();
+        $('#nextbutton').show();
         check_ans(ans);
       });
 
     $( "#give-up" ).click(function( event ) {
-        $('#nextbutton').prop('disabled', false);
         ans = "give-up";
         console.log(ans);
+        $('#submitbuttons').hide();
+        $('#nextbutton').show();
         check_ans(ans);
     });
 })
@@ -90,6 +103,5 @@ function display_result(feedback, correct, real_ans){
         console.log(ans_text);
         $("#d_correct").text(`Sorry, but ${ans_text} is  incorrect`)
     }
-
     $("#d_feedback").text(feedback)
 }
