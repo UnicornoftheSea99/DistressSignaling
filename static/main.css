@@ -23,11 +23,9 @@ body{
 }
 #hometitle{
     font-size: 50px;
-    /* text-align: center; */
 }
 #homesubtitle{
     font-size: 35px;
-    /* text-align: center; */
 }
 #testq{
     padding-left: 15px;
@@ -114,7 +112,7 @@ body{
     -webkit-transition: max-height .5s ease-in-out;
     transition: max-height .5s ease-in-out;
   }
-  .nav__list input[type=checkbox]:checked + label + ul { /* reset the height when checkbox is checked */
+  .nav__list input[type=checkbox]:checked + label + ul { 
   max-height: 1000px; }
   label > span {
     float: right;
