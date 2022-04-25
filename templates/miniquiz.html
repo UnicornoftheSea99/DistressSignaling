@@ -8,26 +8,31 @@
     console.log(page_info)
 </script>
 
-<div class="container">
+<div id = "testq" class="container">
 
-    <h3>{{page_info.page_title}}</h3>
+    <div class = "row header">{{page_info.page_title}}</div>
+    <div class = "row">
+        <form id="quiz_answer" class="form-inline">
+            <div class = "container">
+            <div class = "row">
+                <p id="rad">{{page_info.question}}<br></p>
+            </div>
+            <div id = "submitbuttons" class = "row">
+                <input id = "submitonly" class = "submitbutton" type="submit" value="Submit" disabled>
+                <input class = "submitbutton" type="button" id="give-up" value="Give up?">
+            </div>
+        </div>
+        </form>
+    </div>
+    <div class = "row">
+        <div id="d_correct"></div><br>
+    </div>
+    <div class = "row">
+        <div id="d_feedback"></div><br>
+    </div>
+    <div id = "nextq" class = "row">
+        <a href= "{{'/learn/%s/%s'|format(next_category,next_subcategory)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>
+    </div>
 
-    <form id="quiz_answer" class="form-inline">
-
-
-
-        <p id="rad">{{page_info.question}}<BR></p>
-
-        <br>
-        <br>
-
-        <input type="submit" id="sub"  value="Submit">
-        <input type="button" id="give-up" value="Give up?">
-        <div id="d_buttons"></div>
-    </form>
-    <div id="d_correct"></div>
-    <div id="d_feedback"></div>
-    <a href= "{{'/learn/%s/%s'|format(next_category,next_subcategory)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>
-</div>
 </div>
 {% endblock %}
