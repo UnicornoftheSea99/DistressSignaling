@@ -25,7 +25,8 @@ $(document).ready(function(){
         event.preventDefault();
         ans = $('input[name="choices"]:checked').val();
         console.log(ans);
-
+        $('#sub').remove();
+        $('#give-up').remove();
         $('#nextbutton').prop('disabled', false);
 
         display_result()
@@ -35,6 +36,9 @@ $(document).ready(function(){
         $('#nextbutton').prop('disabled', false);
         ans = "give-up";
         console.log(ans);
+        $('#sub').remove()
+        $('#give-up').remove();
+        
         display_result()
     });
 })
