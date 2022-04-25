@@ -1,39 +1,34 @@
 var indices = ['a', 'b', 'c', 'd']
 
 $(document).ready(function(){ 
-        // for (var key, value of one)
-        // {
-        $.each(indices, function(i, v) {
-            if (one.hasOwnProperty(v)){
-                $('#rad').append(
-                    $('<input>').prop({
-                        type: 'radio',
-                        id: v,
-                        name: 'choices',
-                        value: v
-                    })
-                )
 
-                $('#rad').append(one[v])
-                $('#rad').append(`<br>`)
-            }
-        })
+    $.each(indices, function(i, v) {
+        if (one.hasOwnProperty(v)){
+            $('#rad').append(
+                $('<input>').prop({
+                    type: 'radio',
+                    id: v,
+                    name: 'choices',
+                    value: v
+                })
+            )
 
-    $('#nextbutton').prop('disabled', true);
+            $('#rad').append(one[v])
+            $('#rad').append(`<br>`)
+        }
+    })
+
+    $('#nextbutton').prop("disabled", true);
 
     $( "#quiz_answer" ).submit(function( event ) {
         event.preventDefault();
-        let str = $( "input" ).first().val()
         ans = $('input[name="choices"]:checked').val();
         console.log(ans);
-
-        $('#nextbutton').prop('disabled', false);
 
         check_ans(ans);
       });
 
     $( "#give-up" ).click(function( event ) {
-        $('#nextbutton').prop('disabled', false);
         ans = "give-up";
         console.log(ans);
         check_ans(ans);
@@ -41,6 +36,11 @@ $(document).ready(function(){
 })
 
 function check_ans(ans){
+    $('#sub').remove();
+    $('#give-up').remove();
+    // $('#nextbutton').prop("disabled", false);
+    $('#next').append(`<a href= "${next_page}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>`)
+
     ans_json = {
         "ans": ans,
         "num": one.id

@@ -6,6 +6,8 @@
 <script>
     let one = {{one|tojson}}
     console.log(one)
+    let next_page = "{{'%s'|format(next_page)}}"
+    console.log(next_page)
 </script>
 
 <div class="container">
@@ -26,13 +28,14 @@
         <br>
         <br>
 
-        <input type="submit" value="Submit">
+        <input type="submit" id="sub" value="Submit">
         <input type="button" id="give-up" value="Give up?">
         <div id="d_buttons"></div>
     </form>
     <div id="d_correct"></div>
     <div id="d_feedback"></div>
-    <a href= "{{'%s'|format(next_page)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>
+    <div id="next"></div>
+    <!-- <a href= "{{'%s'|format(next_page)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a> -->
 </div>
 </div>
 {% endblock %}
