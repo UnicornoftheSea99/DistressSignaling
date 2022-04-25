@@ -213,6 +213,10 @@ def learn_intro():
     next_category = learning_data["2"]["category"]
     next_subcategory = learning_data["2"]["subcategory"]
     print(page_info)
+    if int(page_info["id"]) == len(learning_data):
+        page_info["end"] = 1
+    else:
+        page_info["end"] = 0
     global activity
     time = datetime.datetime.now()
     activity[str(time)] = 'introduction'
@@ -232,14 +236,18 @@ def learn(category,subcategory):
             page_info = learning_data[item]
     # print(page_info)
     next_id = str(int(page_info["id"]) + 1)
-    print(next_id)
+    # print(next_id)
+    if int(page_info["id"])+1 == len(learning_data):
+        page_info["end"] = 1
+    else:
+        page_info["end"] = 0
     next_category = learning_data[next_id]["category"]
     next_subcategory = learning_data[next_id]["subcategory"]
     if page_info["subcategory"] == "video":
         video_link = page_info["media"][0].replace("watch?v=", "embed/watch?v=")
-        return render_template('learningvideo.html', page_info = page_info, learning_data = learning_data,next_category=next_category,next_subcategory=next_subcategory,video_link=video_link) 
+        return render_template('learningvideo.html', page_info = page_info, learning_data = learning_data,next_category=next_category,next_subcategory=next_subcategory,video_link=video_link)
     else:  
-        return render_template('learning.html', page_info = page_info, learning_data = learning_data,next_category=next_category,next_subcategory=next_subcategory)   
+        return render_template('learning.html', page_info = page_info, learning_data = learning_data,next_category=next_category,next_subcategory=next_subcategory)
 
 @app.route('/learn/signal_fire_activity')
 def build_a_fire():
