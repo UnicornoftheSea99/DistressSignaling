@@ -38,7 +38,7 @@ $(document).ready(function(){
 function check_ans(ans){
     $('#sub').remove();
     $('#give-up').remove();
-    // $('#nextbutton').prop("disabled", false);
+    console.log(next_page);
     $('#next').append(`<a href= "${next_page}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>`)
 
     ans_json = {
@@ -75,7 +75,6 @@ function check_ans(ans){
 
 function display_result(feedback, correct, real_ans){
     if (correct === "True") {
-        // let ans_text = $(`input[name="choices"][value=${real_ans}]`).prev('label').text();
         ans_text = one[real_ans]
         console.log(ans_text);
         $("#d_correct").text(`${ans_text} is correct!`)
