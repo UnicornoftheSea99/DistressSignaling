@@ -1,32 +1,45 @@
 <head type="text/css" media="print">
     <style type="text/css">
-        @media print{
-.noprint {display:none;}
+        @media print {
+            .noprint {
+                display: none;
+            }
 
-}
+        }
     </style>
-    <style>a{text-decoration:none}</style>
+    <style>
+        a {
+            text-decoration: none
+        }
+    </style>
 </head>
-<body>
-<div  style="width:800px; height:500px; padding:20px; text-align:center; border: 10px solid #787878">
-    <div style="width:750px; height:450px; padding:20px; text-align:center; border: 5px solid #787878">
-        <span style="font-size:50px; font-weight:bold">Certificate of Achievement</span>
-        <br><br>
-        <span style="font-size:25px"><i>This is to certify that</i></span>
-        <br><br>
-        <span style="font-size:30px"><b>$student.getFullName()</b></span><br /><br />
-        <span style="font-size:25px"><i>has completed the course</i></span> <br /><br />
-        <span style="font-size:30px">Distress Signaling</span> <br /><br />
-        <span style="font-size:20px">with score of <b>{{grade}}%</b></span> <br /><br /><br /><br />
-        <span style="font-size:25px"><i>dated</i></span><br>
-        #set ($dt = $DateFormatter.getFormattedDate($grade.getAwardDate(), "MMMM dd, yyyy"))
-        <span style="font-size:30px">$dt</span>
-    </div>
-</div>
 
-<div class="noprint">
-    <button><a href= "{{'/'}}" >Go to homepage</a></button>
-    <button onclick="window.print()">print your certificate</button>
-</div>
+<body>
+    <div style="width:800px; height:500px; padding:20px; text-align:center; border: 10px solid #787878">
+        <div style="width:750px; height:450px; padding:20px; text-align:center; border: 5px solid #787878">
+            <span style="font-size:50px; font-weight:bold">Certificate of Achievement</span>
+            <br><br>
+            <span style="font-size:25px"><i>This is to certify that</i></span>
+            <br><br>
+            <span style="font-size:30px"><b>You</b></span><br /><br />
+            <span style="font-size:25px"><i>have completed the course</i></span> <br /><br />
+            <span style="font-size:30px">Distress Signaling</span> <br /><br />
+            <span style="font-size:20px">with a score of <b>{{grade}}%</b></span> <br /><br />
+            <span style="font-size:30px">RBTW Academic</span><br /><br />
+            <span style="font-size:25px">
+                <script>
+                    date = new Date().toLocaleDateString();
+                    document.write(date);
+                </script><i> dated</i>
+            </span><br>
+
+
+        </div>
+    </div>
+
+    <div class="noprint">
+        <button><a href="{{'/'}}">Go to homepage</a></button>
+        <button onclick="window.print()">print your certificate</button>
+    </div>
 
 </body>
