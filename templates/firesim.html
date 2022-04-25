@@ -9,13 +9,35 @@
 
     <div class = "container">
         <div class="row"></div>
-        <div class = "row header">Build a Signal Fire! Drag each material to match the order it would be added from bottom to top</div>
+        <div id = "build" class = "row header">Build a Signal Fire! Drag each material to match the order it would be added from bottom to top</div>
         <div id = "fire_materials" class = "row"></div>
+        <div id="successMessage" class = "container">
+            <div class = "row header">You did it! You successfully built a signal fire. Help is on the way!</div>
+            <div id ="firebuilt" class = "row"><img src = "https://64.media.tumblr.com/56e0de54db427ddc2d8ba4f0717f9b6c/tumblr_otwzm1Sbb81runoqyo1_540.gifv" alt="fire"></div>
+            <div class = "row">
+                <div class = "col-3 fireanswer">
+                    <p>Dry Tinder</p>
+                    <img src = "https://b.rgbimg.com/users/l/lu/lusi/600/mgyuCEy.jpg" class = 'img-fluid'>
+                </div>
+                <div class = "col-3 fireanswer">
+                    <p>Wood Kindling</p>
+                    <img src="https://m.media-amazon.com/images/I/513Xz4L6SHL._AC_US200_.jpg" class = 'img-fluid'>
+                </div>
+                <div class = "col-3 fireanswer">
+                    <p>Moss/Decaying Plants</p>
+                    <img src="https://cdn.shopify.com/s/files/1/0260/8191/9066/products/Chartreuse_580x.png?v=1629396828" class = 'img-fluid'>
+                </div>
+                <div class = "col-3 fireanswer">
+                    <p>Leafy Vegetation</p>
+                    <img src="https://m.media-amazon.com/images/I/81BHFiAx4BL._AC_SX425_.jpg" class = 'img-fluid'>
+                </div>
+            </div>
+        </div>
         <div id = "fire_answer" class = "row">
-            <div id = "fire1" class = "col-3 fireanswer"></div>
-            <div id = "fire2" class = "col-3 fireanswer"></div>
-            <div id = "fire3" class = "col-3 fireanswer"></div>
-            <div id = "fire4" class = "col-3 fireanswer"></div>
+            <div id = "fire1" data-order="1" class = "col-3 fireanswer"></div>
+            <div id = "fire2" data-order="2" class = "col-3 fireanswer"></div>
+            <div id = "fire3" data-order="3" class = "col-3 fireanswer"></div>
+            <div id = "fire4" data-order="4" class = "col-3 fireanswer"></div>
         </div>
         <div id = "next" class = "row">
             <a href= "{{'/test/homepage'}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Go to test</a>

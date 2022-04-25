@@ -32,6 +32,7 @@ body{
 .header{
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
 }
 .subtitle{
     font-size: 30px;
@@ -42,12 +43,6 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-/* #start{
-    font-size: 20px;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-} */
 .fireanswer{
     background-color: lightgrey;
     background-clip: content-box;
@@ -70,4 +65,16 @@ body{
     padding-left: 40px;
     padding-right: 40px;
 }
+
+#successMessage{
+    text-align: center;
+    
+}
+#firebuilt{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
 
