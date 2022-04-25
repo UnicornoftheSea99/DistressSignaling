@@ -252,6 +252,9 @@ def learn(category,subcategory):
 @app.route('/learn/signal_fire_activity')
 def build_a_fire():
     global fire_simulation
+    global activity
+    time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    activity[time_str] = 'signal fire activity'
     return render_template('firesim.html', fire_material = fire_simulation)   
 
 # @app.route('/view/<id>')
