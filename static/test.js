@@ -1,37 +1,16 @@
 var indices = ['a', 'b', 'c', 'd']
 
 $(document).ready(function(){ 
+    createQuestion();
+       
 
-        $.each(indices, function(i, v) {
-            if (one.hasOwnProperty(v)){
-                $('#rad').append(
-                    $('<input>').prop({
-                        type: 'radio',
-                        id: v,
-                        name: 'choices',
-                        value: v
-                    })
-                )
-                $('#rad').append(one[v])
-                $('#rad').append(`<br>`)
-            }
-        })
-
-    // var radios = document.querySelectorAll('input[type=radio]');
-    // var checked = document.querySelectorAll('input[type=radio]:checked');
-    // if(!checked.length){
-    //     $('#submitonly').attr(disabled,true)
-    // }
-    // //attach the event handler to all the radio buttons with forEach and addEventListener
-    // radios.forEach(function(el){
-    // el.addEventListener('click', function(){
-    //     checked = document.querySelectorAll('input[type=radio]:checked');
-    //     if(checked.length){
-    //     //enable the button by removing the attribute
-    //     $('#submitonly').removeAttribute("disabled");
-    //     }
-    // });
-    // });
+    var inputElems = document.getElementsByClassName("testanswer");
+    for (var i = inputElems.length - 1; i >= 0; --i) {
+        var elem = inputElems[i];
+        elem.onchange = function () {
+            document.getElementById("submitonly").removeAttribute("disabled");
+        };
+    }
 
     $('#nextbutton').hide()
 
@@ -54,6 +33,24 @@ $(document).ready(function(){
         check_ans(ans);
     });
 })
+
+function createQuestion(){
+    $.each(indices, function(i, v) {
+        if (one.hasOwnProperty(v)){
+            $('#rad').append(
+                $('<input>').prop({
+                    type: 'radio',
+                    id: v,
+                    name: 'choices',
+                    value: v,
+                    class: 'testanswer'
+                })
+            )
+            $('#rad').append(one[v])
+            $('#rad').append(`<br>`)
+        }
+    })
+}
 
 function check_ans(ans){
     $('#sub').remove();
