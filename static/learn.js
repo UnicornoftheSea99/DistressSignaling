@@ -9,21 +9,18 @@ function display_info(page_info){
     let media = page_info.media;
     //info block 1
     if (ib1[0] != ""){
-        let h1= $("<div class = 'row header'>")
+        let h1= $("<div class = 'row header accentcolor'>")
         $(h1).text(ib1[0])
         $("#infoblock1").append(h1);
-        $("#infoblock1").append("<br>");
     }
-    let info1= $("<div class = 'row'>")
+    let info1= $("<div class = 'row'><ul>")
     if (Array.isArray(ib1[1])){
-        $(info1).append("<ul>");
         for (item in ib1[1]){
             let new_listitem = $("<li>" + ib1[1][item] + "</li>")
             $(info1).append(new_listitem);
-            $(info1).append("<br>");
         }
-        $(info1).append("</ul>");
         $("#infoblock1").append(info1);
+        $(info1).append("</ul>");
     }
     else{
         $(info1).text(ib1[1])
@@ -31,7 +28,7 @@ function display_info(page_info){
     }
     //info block 2
     if (ib1[0] != ""){
-        let h2= $("<div class = 'row header'>")
+        let h2= $("<div class = 'row header accentcolor'>")
         $(h2).text(ib2[0])
         $("#infoblock2").append(h2);
     }
@@ -52,7 +49,7 @@ function display_info(page_info){
     }
     //info block 3
     if (ib1[0] != ""){
-        let h3= $("<div class = 'row header'>")
+        let h3= $("<div class = 'row header accentcolor'>")
         $(h3).text(ib3[0])
         $("#infoblock3").append(h3);
     }
@@ -81,6 +78,7 @@ function display_info(page_info){
         $(imagerow).append(imagecol)
         $(imagecol).append(new_image)
     }
+
     $("#media").append(imagerow);
     if (page_info.end == 0) {
         $("#fire").remove()

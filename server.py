@@ -12,7 +12,7 @@ learning_data = {
     "info1": ["What is a distress signal?", "A distress signal, also known as a distress call, is an internationally recognized way of indicating that you are in serious and/or immediate danger and are in need of help."],
     "info2": [ "","You should not use a distress signal if you are not in serious and/or immediate danger."],
     "info3":[ "",""],
-    "media": ["https://pbs.twimg.com/media/DPPj9YeXcAI2P8D.jpg","https://aceboater.com/media/guide/1/visual-distress-signals.jpg"],
+    "media": ["https://aceboater.com/media/guide/1/visual-distress-signals.jpg","https://pbs.twimg.com/media/DPPj9YeXcAI2P8D.jpg"],
     "category": "introduction",
     "subcategory": ""
     },
@@ -105,17 +105,27 @@ learning_data = {
     "info1": ["Why light a signal fire?", "A signal fire is useful because it can be see for miles."],
     "info2": [ "What should a signal fire look like?",["One or Three Signal Fires in a Triangle Formation in an open space","(Depending on Resources) First layer dry tinder, second layer wood kindling, third layer moss and decaying plant life (optional), final layer green leafy vegetation"]],
     "info3":[ "",""],
+    "media": ["https://arestlessart.files.wordpress.com/2022/02/signal-fires.jpg"],
+    "category": "wilderness",
+    "subcategory": "intro"
+    },
+    "11": { 
+    "id": "11", 
+    "page_title": "Signal Fires",
+    "info1": ["Watch this video to see a signal fire being built!",""],
+    "info2": [ "",""],
+    "info3":[ "",""],
     "media": ["https://www.youtube.com/embed/0G857JwMsM8"],
     "category": "wilderness",
     "subcategory": "video"
     },
-    "11": {
-        "id": "11",
+    "12": {
+        "id": "12",
         "category": "wilderness",
         "subcategory": "signal_fire_activity"
     },
-    "12": {
-        "id": "12",
+    "13": {
+        "id": "13",
         "page_title": "Wilderness Distress Signals Mini Quiz",
         "question": "Which of the following cannot be used as a signal mirror?",
         "a": "Belt Buckle",
@@ -127,8 +137,8 @@ learning_data = {
         "category": "wilderness",
         "subcategory": "quiz",
     },      
-     "13": { 
-    "id": "13", 
+     "14": { 
+    "id": "14", 
     "page_title": "Street Distress Signals",
     "info1": ["", "Aside from being lost at sea or stranded on a deserted island, you may have other reasons to signal for distress. And though most people seem to have easy access to a phone at all times, there are scenarios when calling for help may not be possible."],
     "info2": [ "In what specific scenarios may one need to call for help but be unable to?","Domestic Violence, Human Trafficking, and Kidnapping"],
@@ -137,8 +147,8 @@ learning_data = {
     "category": "streets",
     "subcategory": "intro"
     },
-     "14": { 
-    "id": "14", 
+     "15": { 
+    "id": "15", 
     "page_title": "Street Distress Signals",
     "info1": ["", ""],
     "info2": [ "",""],
@@ -147,8 +157,8 @@ learning_data = {
     "category": "streets",
     "subcategory": "video"
     },
-    "15": {
-        "id": "15",
+    "16": {
+        "id": "16",
         "page_title": "Street Distress Signals Mini Quiz",
         "question": "Which of the following is not a reason to use the international hand signal for help?",
         "a": "Domestic violence",

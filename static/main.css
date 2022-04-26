@@ -1,3 +1,9 @@
+.basecolor{
+    background-color: #68020F;
+}
+.accentcolor{
+    color:#F21137;
+}
 body{
     font-family: 'Roboto', sans-serif;
 }
@@ -41,8 +47,13 @@ body{
     font-weight: bold;
     text-align: center;
 }
+.header2{
+    font-size: 20px;
+    font-weight: bold;
+}
 .subtitle{
     font-size: 30px;
+    font-weight: bold;
 }
 .centered {
     position: absolute;
@@ -93,6 +104,7 @@ body{
     display: block;
     -webkit-transition: all .25s ease-in;
     transition: all .25s ease-in;
+    color: black;
   }
   .nav a:focus, .nav a:hover, .nav label:focus, .nav label:hover {
     background: lightgrey;
@@ -111,6 +123,7 @@ body{
     overflow: hidden;
     -webkit-transition: max-height .5s ease-in-out;
     transition: max-height .5s ease-in-out;
+    color: #68020F;
   }
   .nav__list input[type=checkbox]:checked + label + ul { 
   max-height: 1000px; }
@@ -118,10 +131,27 @@ body{
     float: right;
     -webkit-transition: -webkit-transform .65s ease;
     transition: transform .65s ease;
+    color: #68020F;
   }
   .nav__list input[type=checkbox]:checked + label > span {
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
+    color: #68020F;
   }
+.btn-outline-secondary:hover, .btn-outline-secondary:focus, .btn-outline-secondary:active, .btn-outline-secondary.active, .open>.dropdown-toggle.btn-outline-secondary {
+    color: black;
+    background-color: lightgrey;
+    border-color: lightgrey;
+}
+.startbuttons{
+    margin: 5px;
+}
+#next{
+    margin-top: 10px;
+}
+#begin{
+    margin-top: 10px;
+}
+
 
