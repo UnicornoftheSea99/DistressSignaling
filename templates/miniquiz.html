@@ -15,7 +15,7 @@
         <form id="quiz_answer" class="form-inline">
             <div class = "container">
             <div class = "row">
-                <p id="rad">{{page_info.question}}<br></p>
+                <p id="rad" >{{page_info.question}}<br></p>
             </div>
             <div id = "submitbuttons" class = "row">
                 <input id = "submitonly" class = "submitbutton" type="submit" value="Submit" disabled>
@@ -25,10 +25,10 @@
         </form>
     </div>
     <div class = "row">
-        <div id="d_correct"></div><br>
+        <div id="d_correct" style="font-weight: bold"></div><br>
     </div>
     <div class = "row">
-        <div id="d_feedback"></div><br>
+        <div id="d_feedback" style="color: darkgrey"></div><br>
     </div>
     <div id = "nextq" class = "row">
         <a href= "{{'/learn/%s/%s'|format(next_category,next_subcategory)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>

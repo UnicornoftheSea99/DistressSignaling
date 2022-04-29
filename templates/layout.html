@@ -1,5 +1,8 @@
 <!-- Reference : https://www.cssscript.com/multilevel-accordion-menu-with-plain-html-css/ -->
 <!doctype html>
+<style>
+  .group-list a{font-size: 17px}
+</style>
 <html lang="en">
   <head>
     <title>Distress Signaling</title>
@@ -65,10 +68,10 @@
         <div class = "col-2 sidenav">
           <nav class="nav" role="navigation">
             <ul class="nav__list" style="list-style: none;">
-              <li id = "introlink"><a href="/learn/introduction">Introduction</a></li>
+              <li id = "introlink"><a href="/learn/introduction" style="font-size: 20px; font-weight: bold">Introduction</a></li>
               <li>
                 <input id="maritime" type="checkbox" hidden />
-                <label for="maritime"><span class="fa fa-angle-right"></span> <a href="/learn/maritime/intro">Maritime</a></label>
+                <label for="maritime"><span class="fa fa-angle-right"></span> <a href="/learn/maritime/intro"  style="font-size: 20px; font-weight: bold">Maritime</a></label>
                 <ul class="group-list">
                   <li><a href="/learn/maritime/visual">Visual</a></li>
                   <li><a href="/learn/maritime/sound">Sound</a></li>
@@ -79,15 +82,15 @@
               </li>
               <li>
                 <input id="wilderness" type="checkbox" hidden />
-                <label for="wilderness"><span class="fa fa-angle-right"></span> <a href="/learn/wilderness/intro">Wilderness</a></label>
+                <label for="wilderness"><span class="fa fa-angle-right"></span> <a href="/learn/wilderness/intro" style="font-size: 20px; font-weight: bold">Wilderness</a></label>
                 <ul class="group-list">
                   <li><a href="/learn/wilderness/reflective">Reflective Surfaces</a></li>
                   <li>
                     <input id="wildernesssub" type="checkbox" hidden />
                     <label for="wildernesssub"><span class="fa fa-angle-right"></span> <a href="/learn/wilderness/intro">Signal Fires</a></label>
                     <ul class="group-list">
-                      <li><a href="/learn/wilderness/video">Signal Fire Video</a></li>
-                      <li><a href="/learn/wilderness/signal_fire_activity">Signal Fire Activity</a></li>
+                      <li><a href="/learn/wilderness/video" style="color: darkgrey">Signal Fire Video</a></li>
+                      <li><a href="/learn/wilderness/signal_fire_activity" style="color: darkgrey">Signal Fire Activity</a></li>
                     </ul>
                   </li>
                   <li><a href="/learn/wilderness/quiz">Mini Quiz</a></li>
@@ -95,13 +98,13 @@
               </li>
               <li>
                 <input id="streets" type="checkbox" hidden />
-                <label for="streets"><span class="fa fa-angle-right"></span><a href="/learn/streets/intro">Streets</a></label>
+                <label for="streets"><span class="fa fa-angle-right"></span><a href="/learn/streets/intro"  style="font-size: 20px; font-weight: bold">Streets</a></label>
                 <ul class="group-list">
                   <li><a href="/learn/streets/video">Video</a></li>
                   <li><a href="/learn/streets/quiz">Mini Quiz</a></li>
                 </ul>
               </li>
-              <li><a href="/test/homepage">Test</a></li>
+              <li><a href="/test/homepage"  style="font-size: 20px; font-weight: bold">Test</a></li>
             </ul>
           </nav>
         </div>

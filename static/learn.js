@@ -13,14 +13,15 @@ function display_info(page_info){
         $(h1).text(ib1[0])
         $("#infoblock1").append(h1);
     }
-    let info1= $("<div class = 'row'><ul>")
+    let info1= $("<div style='font-weight: bold'><ul>")
     if (Array.isArray(ib1[1])){
         for (item in ib1[1]){
             let new_listitem = $("<li>" + ib1[1][item] + "</li>")
             $(info1).append(new_listitem);
         }
-        $("#infoblock1").append(info1);
         $(info1).append("</ul>");
+        $("#infoblock1").append(info1);
+
     }
     else{
         $(info1).text(ib1[1])
@@ -32,7 +33,7 @@ function display_info(page_info){
         $(h2).text(ib2[0])
         $("#infoblock2").append(h2);
     }
-    let info2= $("<div class = 'row'>")
+    let info2= $("<div>")
     if (Array.isArray(ib2[1])){
         $(info2).append("<ul>");
         for (item in ib2[1]){
@@ -53,7 +54,7 @@ function display_info(page_info){
         $(h3).text(ib3[0])
         $("#infoblock3").append(h3);
     }
-    let info3 = $("<div class = 'row'>")
+    let info3 = $("<div style='color: darkgrey '>")
     if (Array.isArray(ib3[1])){
         $(info3).append("<ul>");
         for (item in ib3[1]){
@@ -81,7 +82,7 @@ function display_info(page_info){
 
     $("#media").append(imagerow);
     if (page_info.end == 0) {
-        $("#fire").remove()
+        $("#test").remove()
     }
     else {
         $("#nextbutton").remove()
