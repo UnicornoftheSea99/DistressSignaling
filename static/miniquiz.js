@@ -74,10 +74,9 @@ function display_result(){
         ans_text = page_info[ans].toLowerCase()
         console.log(ans_text);
         $("#d_correct").text(`Sorry, but ${ans_text} is  incorrect`)
+        // highlight incorrect ans
+        $(`#text_${ans}`).addClass("highlight_wrong")
     }
-
-    // highlight incorrect ans
-    $(`#text_${ans}`).addClass("highlight_wrong")
 
     $("#d_feedback").text(page_info["feedback"])
 }
