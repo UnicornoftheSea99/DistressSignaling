@@ -154,4 +154,10 @@ body{
     margin-top: 10px;
 }
 
+.highlight_correct{
+    background-color: rgba(0, 128, 0, 0.555);
+}
 
+.highlight_wrong{
+    background-color: #f2113685;
+}

@@ -46,7 +46,7 @@ function createQuestion(){
                     class: 'testanswer'
                 })
             )
-            $('#rad').append(one[v])
+            $('#rad').append(`<span id=text_${v}>${one[v]}</span>`)
             $('#rad').append(`<br>`)
         }
     })
@@ -91,6 +91,10 @@ function check_ans(ans){
 }
 
 function display_result(feedback, correct, real_ans){
+    // Always highlight the correct ans
+    $(`#text_${real_ans}`).addClass("highlight_correct")
+    console.log(`text_${real_ans}`)
+
     if (correct === "True") {
         ans_text = one[real_ans]
         console.log(ans_text);
@@ -105,6 +109,8 @@ function display_result(feedback, correct, real_ans){
         ans_text = one[ans].toLowerCase()
         console.log(ans_text);
         $("#d_correct").text(`Sorry, but ${ans_text} is  incorrect`)
+        // highlight incorrect ans
+        $(`#text_${ans}`).addClass("highlight_wrong")
     }
     $("#d_feedback").text(feedback)
 }

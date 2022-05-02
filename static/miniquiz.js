@@ -16,7 +16,8 @@ $(document).ready(function(){
                         class: 'testanswer'
                     })
                 )
-                $('#rad').append(page_info[v])
+                // $('#rad').append(page_info[v])
+                $('#rad').append(`<span id=text_${v}>${page_info[v]}</span>`)
                 $('#rad').append(`<br>`)
             }
         })
@@ -55,6 +56,9 @@ $(document).ready(function(){
 
 
 function display_result(){
+    // Always highlight the correct ans
+    $(`#text_${page_info["answer"]}`).addClass("highlight_correct")
+    console.log(`text_${page_info["answer"]}`)
     
     if (ans === page_info["answer"]) {
         ans_text = page_info[ans]
@@ -71,6 +75,9 @@ function display_result(){
         console.log(ans_text);
         $("#d_correct").text(`Sorry, but ${ans_text} is  incorrect`)
     }
+
+    // highlight incorrect ans
+    $(`#text_${ans}`).addClass("highlight_wrong")
 
     $("#d_feedback").text(page_info["feedback"])
 }
