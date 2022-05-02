@@ -1,5 +1,5 @@
 <head type="text/css" media="print">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}"><link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
     <style type="text/css">
@@ -14,23 +14,24 @@
         a {
             text-decoration: none
         }
+        .break {height: 12px;}
     </style>
 </head>
 
 <body>
-    <div style="width:800px; height:500px; padding:20px; text-align:center; border: 10px solid #787878">
-        <div style="width:750px; height:450px; padding:20px; text-align:center; border: 5px solid #787878">
-            <span style="font-size:50px; font-weight:bold">Certificate of Achievement</span>
-            <br><br>
-            <span style="font-size:25px"><i>This is to certify that</i></span>
-            <br><br>
-            <span style="font-size:30px"><b>You</b></span><br /><br />
-            <span style="font-size:25px"><i>have successfully completed the course of</i></span> <br /><br />
-            <span style="font-size:30px">Distress Signaling</span> <br /><br />
-            <span style="font-size:20px">with a score of <b>{{grade}}%</b></span> <br /><br />
+    <div style="width:800px; height:500px; padding:20px; text-align:center; border: 15px solid #68020F;;">
+        <div style="width:750px; height:450px; padding:20px; text-align:center; border: 5px solid darkgray;background-color: white;">
+            <span style="font-size:50px; font-weight:bold;">Certificate of Achievement</span>
+            <br><br><div class="row break"></div>
+            <span style="font-size:25px;color: darkgray"><i>This is to certify that</i></span>
+            <br><div class="row break"></div>
+            <span style="font-size:30px"><b>Richard Roe</b></span><br /><div class="row break"></div>
+            <span style="font-size:25px;color: darkgray"><i>has successfully completed the course of</i></span> <br /><br />
+            <span style="font-size:32px;color:#F21137;">Distress Signaling</span> <br /><div class="row break"></div>
+            <span style="font-size:20px;color: lightgray;">with a score of <b>{{grade}}%</b></span> <br /><br /><div class="row break"></div>
             <span style="font-size:40px;font-weight: bolder;font-family: 'MonteCarlo', cursive,serif;">RBTW
                 Academy</span><br />
-            <span style="font-size:25px">
+            <span style="font-size:20px;color: darkgray;">
                 <script>
                     date = new Date().toLocaleDateString();
                     document.write(date);
