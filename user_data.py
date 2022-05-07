@@ -2,7 +2,7 @@ import pymongo
 import json
 
 client = pymongo.MongoClient(
-    "mongodb+srv://thw990210:thw990210@cluster0.u4yhm.mongodb.net/UI?retryWrites=true&w=majority")
+    "mongodb+srv://thw990210:<password>@cluster0.u4yhm.mongodb.net/UI?retryWrites=true&w=majority")
 db = client.UI
 collection = db.user_info
 requesting = []
