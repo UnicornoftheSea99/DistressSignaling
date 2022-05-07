@@ -2,6 +2,7 @@ var indices = ['a', 'b', 'c', 'd']
 
 $(document).ready(function(){ 
     $('#nextbutton').hide()
+    $("#test").hide()
     
     createQuestion()
     function createQuestion(){
@@ -20,7 +21,9 @@ $(document).ready(function(){
                 $('#rad').append(`<span id=text_${v}>${page_info[v]}</span>`)
                 $('#rad').append(`<br>`)
             }
-        })
+        })    
+
+        
     }
     
     var inputElems = document.getElementsByClassName("testanswer");
@@ -79,4 +82,11 @@ function display_result(){
     }
 
     $("#d_feedback").text(page_info["feedback"])
+    if (page_info.end == 0) {
+        $("#test").remove()
+    }
+    else {
+        $("#nextbutton").remove()
+        $("#test").show()
+    }
 }
