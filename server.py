@@ -107,7 +107,7 @@ learning_data = {
     "info3":[ "",""],
     "media": ["https://arestlessart.files.wordpress.com/2022/02/signal-fires.jpg"],
     "category": "wilderness",
-    "subcategory": "intro"
+    "subcategory": "signal_fire"
     },
     "11": { 
     "id": "11", 
@@ -293,7 +293,7 @@ def learn(category,subcategory):
     # print(page_info)
     next_id = str(int(page_info["id"]) + 1)
     # print(next_id)
-    if int(page_info["id"])+1 == len(learning_data):
+    if int(page_info["id"]) == len(learning_data):
         page_info["end"] = 1
     else:
         page_info["end"] = 0

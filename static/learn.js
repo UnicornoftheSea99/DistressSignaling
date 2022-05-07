@@ -13,7 +13,7 @@ function display_info(page_info){
         $(h1).text(ib1[0])
         $("#infoblock1").append(h1);
     }
-    let info1= $("<div style='font-weight: bold'><ul>")
+    let info1= $("<div><ul>")
     if (Array.isArray(ib1[1])){
         for (item in ib1[1]){
             let new_listitem = $("<li>" + ib1[1][item] + "</li>")
