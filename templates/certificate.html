@@ -1,4 +1,5 @@
 <head type="text/css" media="print">
+    <title>Certificate</title>
     <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}"><link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
@@ -16,16 +17,33 @@
         }
         .break {height: 12px;}
     </style>
+    <script>
+        function askName() {
+            let username = sessionStorage.getItem('username');
+
+            if (username === null) {
+                username = prompt("Please enter your name.");
+            }
+
+            if (username != null) {
+                document.getElementById("username").innerHTML = username;
+                sessionStorage.setItem('username', username);
+            } else {
+                document.getElementById("username").innerHTML = "John Doe";
+            }
+        }
+    </script>
 </head>
 
-<body>
+<body onload="askName()">
     <div style="width:800px; height:500px; padding:20px; text-align:center; border: 15px solid #68020F;;">
         <div style="width:750px; height:450px; padding:20px; text-align:center; border: 5px solid darkgray;background-color: white;">
             <span style="font-size:50px; font-weight:bold;">Certificate of Achievement</span>
             <br><br><div class="row break"></div>
             <span style="font-size:25px;color: darkgray"><i>This is to certify that</i></span>
             <br><div class="row break"></div>
-            <span style="font-size:30px"><b>Richard Roe</b></span><br /><div class="row break"></div>
+            <span id = "username" style="font-size:30px; font-weight: bold;"></span><br>
+            <div class="row break"></div>
             <span style="font-size:25px;color: darkgray"><i>has successfully completed the course of</i></span> <br /><br />
             <span style="font-size:32px;color:#F21137;">Distress Signaling</span> <br /><div class="row break"></div>
             <span style="font-size:20px;color: lightgray;">with a score of <b>{{grade}}%</b></span> <br /><br /><div class="row break"></div>
