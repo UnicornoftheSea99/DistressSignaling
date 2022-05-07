@@ -107,7 +107,7 @@ learning_data = {
     "info3":[ "",""],
     "media": ["https://arestlessart.files.wordpress.com/2022/02/signal-fires.jpg"],
     "category": "wilderness",
-    "subcategory": "intro"
+    "subcategory": "signal_fire"
     },
     "11": { 
     "id": "11", 
