@@ -12,11 +12,11 @@
     </script>
 
     <div class = "container">
-        <div class="row subtitle">{{page_info.page_title}}</div>
-        <div id = "infoblock1"></div><br>
-        <div id = "infoblock2"></div><br>
-        <div id = "infoblock3"></div><br>
-        <div id = "media"></div>  <br>
+        <div class="subtitle">{{page_info.page_title}}</div>
+        <div id = "infoblock1" class = "container"></div><br>
+        <div id = "infoblock2" class = "container"></div><br>
+        <div id = "infoblock3" class = "container"></div><br>
+        <div id = "media" class = "container"></div>  <br>
         <div id = "next" class = "row">
             <a href= "{{'/test/homepage'}}" id ="test" class="btn btn-outline-secondary" role="button" aria-disabled="true">Go to test</a>
             <a href= "{{'/learn/%s/%s'|format(next_category,next_subcategory)}}" id ="nextbutton" class="btn btn-outline-secondary" role="button" aria-disabled="true">Next</a>
