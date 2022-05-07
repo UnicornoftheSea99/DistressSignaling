@@ -293,7 +293,7 @@ def learn(category,subcategory):
     # print(page_info)
     next_id = str(int(page_info["id"]) + 1)
     # print(next_id)
-    if int(page_info["id"])+1 == len(learning_data):
+    if int(page_info["id"]) == len(learning_data):
         page_info["end"] = 1
     else:
         page_info["end"] = 0
